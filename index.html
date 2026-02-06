@@ -3,553 +3,409 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robogineers #71419 | Protecting the Past</title>
+    <title>Robogineers #71419 | From Guesswork to Ground Truth</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap');
         
         :root {
-            --earth: #8B4513;
-            --sand: #F4A460;
             --tech: #00bcd4;
-            --dark: #1a1a1a;
-            --code-bg: #2d2d2d;
-            --danger: #ef4444;
-            --success: #22c55e;
+            --dark: #0c0a09;
+            --stone: #1c1917;
+            --amber: #d97706;
+            --earth: #a54a2a;
         }
 
         body {
             font-family: 'Roboto', sans-serif;
             background-color: var(--dark);
-            color: #eee;
+            color: #e7e5e4;
+            scroll-behavior: smooth;
         }
 
-        h1, h2, h3, .brand-font {
+        h1, h2, h3, h4, .brand-font {
             font-family: 'Rajdhani', sans-serif;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('IMG_8469.jpg'); 
+            background: linear-gradient(rgba(12, 10, 9, 0.85), rgba(12, 10, 9, 0.95)), url('4328cef2-e59a-43dc-9e4b-b52a36fed657.jpg'); 
             background-size: cover;
             background-position: center;
         }
 
         .tech-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 188, 212, 0.3);
-            transition: all 0.3s ease;
+            background: rgba(41, 37, 36, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 119, 6, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .tech-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: var(--tech);
-            box-shadow: 0 0 20px rgba(0, 188, 212, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 188, 212, 0.2);
         }
 
-        /* Coding Block Styles */
-        .code-block {
-            background-color: var(--code-bg);
-            border-left: 4px solid #F4A460;
-            font-family: 'Courier New', monospace;
-        }
-        
-        /* Gallery Slider Styles */
-        .slider-container {
+        .section-heading {
             position: relative;
-            height: 500px;
-            overflow: hidden;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--tech);
+            border-radius: 2px;
+        }
+        
+        .pulse-btn {
+            animation: pulse-tech 2s infinite;
+        }
+        @keyframes pulse-tech {
+            0% { box-shadow: 0 0 0 0 rgba(0, 188, 212, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 188, 212, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 188, 212, 0); }
+        }
+
+        .core-value-badge {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.15), rgba(0, 188, 212, 0.15));
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.25rem;
             border-radius: 1rem;
-            background-color: #000;
-        }
-        
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        
-        .slide.active {
-            opacity: 1;
+            text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        .slide-caption {
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 2rem;
-            transform: translateY(100%);
-            transition: transform 0.5s ease;
-        }
-
-        .slide.active .slide-caption {
-            transform: translateY(0);
-        }
-
-        /* Chart Bars Animation */
         @keyframes growBar {
             from { width: 0; }
-            to { width: 100%; }
+            to { width: var(--final-width); }
         }
         .bar-fill {
-            animation: growBar 1.5s ease-out forwards;
+            animation: growBar 2s ease-out forwards;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: var(--tech);
+            border-radius: 10px;
         }
     </style>
 </head>
-<body>
+<body class="overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-black/90 border-b border-gray-800">
+    <nav class="fixed w-full z-50 bg-black/95 backdrop-blur-lg border-b border-stone-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
+            <div class="flex items-center justify-between h-20">
                 <div class="flex items-center">
-                    <span class="brand-font text-2xl font-bold text-white">Robogineers <span class="text-[#F4A460]">#71419</span></span>
+                    <span class="brand-font text-2xl md:text-3xl font-bold text-white tracking-tighter">ROBOGINEERS <span class="text-[#00bcd4]">#71419</span></span>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#mission" class="hover:text-[#F4A460] px-3 py-2 rounded-md text-sm font-medium">Mission</a>
-                        <a href="#tech-facts" class="hover:text-[#F4A460] px-3 py-2 rounded-md text-sm font-medium">Tech Facts</a>
-                        <a href="#scalability" class="hover:text-[#F4A460] px-3 py-2 rounded-md text-sm font-medium text-[#00bcd4]">Future Impact</a>
-                        <a href="#robot-lab" class="hover:text-[#F4A460] px-3 py-2 rounded-md text-sm font-medium">Robo-Lab</a>
-                        <a href="#gallery" class="hover:text-[#F4A460] px-3 py-2 rounded-md text-sm font-medium">Gallery</a>
-                        <a href="#open-house" class="bg-[#F4A460] text-black hover:bg-white px-4 py-2 rounded-md text-sm font-bold transition">Jan 24 Open House</a>
+                <div class="hidden lg:block">
+                    <div class="ml-10 flex items-baseline space-x-8 text-sm font-semibold tracking-wider">
+                        <a href="#mission" class="hover:text-[#00bcd4] transition uppercase">Problem</a>
+                        <a href="#tech" class="hover:text-[#00bcd4] transition uppercase">Innovation</a>
+                        <a href="#impact" class="hover:text-[#00bcd4] transition uppercase">Impact</a>
+                        <a href="#robot" class="hover:text-[#00bcd4] transition uppercase">Robot</a>
+                        <a href="#values" class="hover:text-[#00bcd4] transition uppercase">Values</a>
+                        <a href="#open-house" class="bg-amber-600 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-amber-500 transition shadow-lg pulse-btn">JAN 24 EVENT</a>
                     </div>
+                </div>
+                <div class="lg:hidden text-white text-2xl">
+                    <i class="fas fa-bars"></i>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <div class="hero-bg h-screen flex items-center justify-center relative">
-        <div class="text-center px-4 max-w-4xl mx-auto">
-            <div class="inline-block border border-[#F4A460] text-[#F4A460] px-4 py-1 rounded-full mb-4 text-sm font-bold tracking-widest">FLL UNEARTHED SEASON</div>
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">Preserving History with <br><span class="accent-text">Future Tech</span></h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-8 font-light">
-                Documentation takes months. Our Solar-LiDAR Drone does it in days.
-                <br>Protecting artifacts before the first shovel hits the ground.
+    <div class="hero-bg min-h-screen flex items-center justify-center relative pt-20 px-6 text-center">
+        <div class="max-w-5xl mx-auto">
+            <div class="inline-block bg-[#00bcd4]/10 border border-[#00bcd4] text-[#00bcd4] px-5 py-1.5 rounded-full mb-8 text-sm font-bold tracking-widest uppercase shadow-[0_0_15px_rgba(0,188,212,0.3)]">FLL UNEARTHED INNOVATION PROJECT</div>
+            <h1 class="text-5xl md:text-8xl font-bold text-white mb-4 leading-tight tracking-tighter uppercase">From Guesswork</h1>
+            <h1 class="text-6xl md:text-9xl font-bold text-[#00bcd4] mb-8 leading-tight tracking-tighter uppercase">To Ground Truth</h1>
+            <p class="text-xl md:text-3xl text-stone-200 mb-12 font-light max-w-3xl mx-auto leading-relaxed">
+                Archaeology is a race against time. We use <strong>LiDAR & Dual-Frequency GPR</strong> to unearth stories before they are lost to the earth forever.
             </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#tech-facts" class="bg-[#00bcd4] text-black font-bold py-3 px-8 rounded-full hover:bg-white transition flex items-center justify-center gap-2">
-                    <i class="fas fa-microchip"></i> How It Works
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="#tech" class="bg-[#00bcd4] text-black font-bold py-5 px-12 rounded-2xl hover:bg-white transition-all flex items-center justify-center gap-3 text-lg shadow-xl uppercase">
+                    <i class="fas fa-microchip"></i> The Innovation
                 </a>
-                <a href="#open-house" class="border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-black transition flex items-center justify-center gap-2">
-                    <i class="fas fa-map-marker-alt"></i> Meet Us Live
+                <a href="#robot" class="border-2 border-stone-600 text-white font-bold py-5 px-12 rounded-2xl hover:bg-white/10 transition-all flex items-center justify-center gap-3 text-lg uppercase">
+                    <i class="fas fa-robot"></i> Robot Strategy
                 </a>
             </div>
-        </div>
-        <div class="absolute bottom-10 w-full text-center animate-bounce">
-            <i class="fas fa-chevron-down text-white text-2xl"></i>
         </div>
     </div>
 
-    <!-- The Problem & Solution -->
-    <section id="mission" class="py-20 bg-[#1a1a1a]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4">The Challenge</h2>
-                <div class="w-24 h-1 bg-[#F4A460] mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <div class="tech-card p-6 rounded-xl border-l-4 border-red-500">
-                        <h3 class="text-2xl font-bold text-white mb-2"><i class="fas fa-exclamation-triangle text-red-500 mr-2"></i> The Problem</h3>
-                        <p class="text-gray-400">
-                            Archaeologists often dig "blind," risking damage to valuable artifacts. Furthermore, the documentation process takes <strong>months of manual labor</strong>, slowing down discovery and increasing costs.
-                        </p>
-                    </div>
-                    <div class="tech-card p-6 rounded-xl border-l-4 border-[#00bcd4]">
-                        <h3 class="text-2xl font-bold text-white mb-2"><i class="fas fa-check-circle text-[#00bcd4] mr-2"></i> The Robogineers Solution</h3>
-                        <p class="text-gray-400">
-                            An autonomous drone equipped with <strong>LiDAR, GPR (Ground Penetrating Radar), and Solar Charging</strong>. It scans the site before and during the dig, creating instant 3D models and cloud-based documentation.
-                        </p>
-                    </div>
-                </div>
-                <div class="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-2xl group">
-                    <img src="3a6d3092-3786-4a20-949e-0cf401a892d6.jpg" onerror="this.src='https://images.unsplash.com/photo-1508614589041-895b88991e3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'" alt="Team Presentation to James" class="w-full h-full object-cover transition duration-500 group-hover:scale-110 opacity-90">
-                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <div class="text-center">
-                            <div class="bg-black/60 px-4 py-2 rounded">
-                                <i class="fas fa-users text-4xl text-[#00bcd4]"></i>
-                                <p class="mt-2 font-bold text-white">VALIDATED BY EXPERTS</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tech Deep Dive (Facts) -->
-    <section id="tech-facts" class="py-20 bg-black relative overflow-hidden">
-        <div class="absolute inset-0" style="background-image: radial-gradient(#333 1px, transparent 1px); background-size: 30px 30px; opacity: 0.2;"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4">Technology Deep Dive</h2>
-                <p class="text-gray-400">Science: It Works</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Graphic Image -->
-                <div class="lg:col-span-1 bg-white p-2 rounded-lg">
-                     <img src="23569090-9E0B-42E6-BB89-7FFE5EBDD34A.jpg" class="w-full h-full object-contain rounded" alt="LiDAR Map Graphic">
-                </div>
-                <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg hover:border-[#00bcd4] transition">
-                    <h3 class="text-[#00bcd4] text-xl font-bold mb-3">LiDAR Technology</h3>
-                    <p class="text-gray-400 text-sm mb-4"><strong>Light Detection and Ranging.</strong> Our system emits 100,000+ laser pulses per second.</p>
-                    <ul class="text-sm text-gray-500 space-y-2">
-                        <li><i class="fas fa-angle-right text-[#00bcd4]"></i> Penetrates tree canopies.</li>
-                        <li><i class="fas fa-angle-right text-[#00bcd4]"></i> Accurate to 2cm.</li>
-                    </ul>
-                </div>
-                <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg hover:border-[#F4A460] transition">
-                    <h3 class="text-[#F4A460] text-xl font-bold mb-3">GPR (Radar)</h3>
-                    <p class="text-gray-400 text-sm mb-4"><strong>Ground Penetrating Radar.</strong> Uses high-frequency radio waves.</p>
-                    <ul class="text-sm text-gray-500 space-y-2">
-                        <li><i class="fas fa-angle-right text-[#F4A460]"></i> Detects walls vs dirt.</li>
-                        <li><i class="fas fa-angle-right text-[#F4A460]"></i> Non-invasive.</li>
-                    </ul>
-                </div>
-                <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg hover:border-green-500 transition">
-                    <h3 class="text-green-500 text-xl font-bold mb-3">Photogrammetry</h3>
-                    <p class="text-gray-400 text-sm mb-4"><strong>Science of Measurements.</strong></p>
-                    <ul class="text-sm text-gray-500 space-y-2">
-                        <li><i class="fas fa-angle-right text-green-500"></i> Overlaps photos by 80%.</li>
-                        <li><i class="fas fa-angle-right text-green-500"></i> Creates VR models.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW SECTION: SCALABILITY & IMPACT -->
-    <section id="scalability" class="py-20 bg-[#111] border-y border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="inline-block bg-[#00bcd4] text-black px-4 py-1 rounded-full mb-4 text-xs font-bold uppercase tracking-widest">Scalability</div>
-                <h2 class="text-4xl font-bold text-white mb-4">Beyond the Dig: A $30 Billion Problem</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">
-                    Our technology doesn't just save artifacts. It saves infrastructure. 
-                    According to the <strong>Common Ground Alliance</strong>, damages to underground utilities cost the U.S. economy approximately <strong>$30 Billion annually</strong>.
+    <!-- Section: The Challenge -->
+    <section id="mission" class="py-24 bg-stone-900 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="section-heading text-4xl md:text-5xl font-bold text-white">The Problem We Chose</h2>
+                <p class="text-stone-400 mt-6 max-w-2xl mx-auto text-lg leading-relaxed italic">
+                    "90% of field research time is spent in the wrong areas."
                 </p>
             </div>
-
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <!-- CHART -->
-                <div class="bg-[#1a1a1a] p-8 rounded-xl border border-gray-700 shadow-2xl">
-                    <h3 class="text-2xl font-bold text-white mb-8 border-b border-gray-700 pb-4">The Cost of Ignorance</h3>
-                    
-                    <!-- Bar 1 -->
-                    <div class="mb-6">
-                        <div class="flex justify-between text-sm text-gray-400 mb-1">
-                            <span>Utility Damage (Repair + Fines)</span>
-                            <span class="text-red-500 font-bold">$50,000+</span>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-10">
+                    <div class="tech-card p-8 md:p-10 rounded-3xl border border-stone-700 shadow-2xl relative">
+                        <div class="flex items-center gap-4 mb-8">
+                            <i class="fas fa-search-minus text-red-500 text-4xl"></i>
+                            <h3 class="text-3xl font-bold text-white">Why We Chose This</h3>
                         </div>
-                        <div class="w-full bg-gray-800 rounded-full h-6">
-                            <div class="bg-red-500 h-6 rounded-full bar-fill" style="width: 95%"></div>
-                        </div>
-                    </div>
-
-                    <!-- Bar 2 -->
-                    <div class="mb-6">
-                        <div class="flex justify-between text-sm text-gray-400 mb-1">
-                            <span>Project Delay (Per Week)</span>
-                            <span class="text-orange-500 font-bold">$20,000</span>
-                        </div>
-                        <div class="w-full bg-gray-800 rounded-full h-6">
-                            <div class="bg-orange-500 h-6 rounded-full bar-fill" style="width: 40%"></div>
-                        </div>
-                    </div>
-
-                    <!-- Bar 3 -->
-                    <div class="mb-2">
-                        <div class="flex justify-between text-sm text-gray-400 mb-1">
-                            <span>Robogineers Drone Scan</span>
-                            <span class="text-green-500 font-bold">~$100</span>
-                        </div>
-                        <div class="w-full bg-gray-800 rounded-full h-6">
-                            <div class="bg-green-500 h-6 rounded-full bar-fill" style="width: 2%"></div>
-                        </div>
-                    </div>
-                    <p class="text-center text-gray-500 text-xs mt-4 italic">"An ounce of prevention is worth a pound of gold."</p>
-                </div>
-
-                <!-- USE CASES -->
-                <div class="space-y-6">
-                    <div class="tech-card p-6 rounded-lg border-l-4 border-yellow-500">
-                        <h4 class="text-xl font-bold text-white mb-2"><i class="fas fa-hard-hat text-yellow-500 mr-2"></i> Smart Construction</h4>
-                        <p class="text-gray-400 text-sm">
-                            Construction crews often hit gas lines because maps are outdated. Our GPR drone can "see" pipes before a backhoe ever touches the dirt, preventing explosions and outages.
+                        
+                        <p class="text-stone-300 leading-relaxed text-lg mb-8 border-b border-stone-800 pb-8">
+                            After interviewing <strong>Dr. James McGrath-Seegmiller</strong> and researching the <em>Association of Iowa Archaeologists</em>, we realized that current methods rely too much on surface-level luck.
                         </p>
-                    </div>
+                        
+                        <div class="space-y-6">
+                            <div class="grid grid-cols-[auto_1fr] gap-x-6 items-start">
+                                <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mt-1">
+                                    <i class="fas fa-times text-red-500 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold text-lg mb-1 uppercase tracking-tight">Artifact Damage</h4>
+                                    <p class="text-stone-400 text-sm leading-relaxed">Blind digging with heavy machinery destroys fragile history before it is ever mapped.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-[auto_1fr] gap-x-6 items-start">
+                                <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mt-1">
+                                    <i class="fas fa-times text-red-500 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold text-lg mb-1 uppercase tracking-tight">Tunnel Collapse</h4>
+                                    <p class="text-stone-400 text-sm leading-relaxed">Undetected voids go unseen, risking the safety of excavation teams.</p>
+                                </div>
+                            </div>
 
-                    <div class="tech-card p-6 rounded-lg border-l-4 border-red-500">
-                        <h4 class="text-xl font-bold text-white mb-2"><i class="fas fa-first-aid text-red-500 mr-2"></i> Wilderness Search & Rescue</h4>
-                        <p class="text-gray-400 text-sm">
-                            Standard drones have short battery life and are blocked by trees. Our <strong>Solar Power</strong> allows for all-day searches, while <strong>LiDAR</strong> penetrates dense forest canopies to spot hikers that cameras miss.
-                        </p>
-                    </div>
-
-                     <div class="tech-card p-6 rounded-lg border-l-4 border-green-500">
-                        <h4 class="text-xl font-bold text-white mb-2"><i class="fas fa-leaf text-green-500 mr-2"></i> Precision Agriculture</h4>
-                        <p class="text-gray-400 text-sm">
-                            Standard drones only look at leaves. Our GPR sensors analyze <strong>soil compaction and root depth</strong> without digging, helping farmers optimize irrigation and increase yields.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Robo-Lab (Design & Code) -->
-    <section id="robot-lab" class="py-20 bg-[#1a1a1a]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4">The Robo-Lab</h2>
-                <p class="text-gray-400">Sharing our design secrets and code for the FLL Community.</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-bold text-white mb-4 border-b border-[#F4A460] inline-block pb-2">Hardware: The "Plug & Play" System</h3>
-                    <p class="text-gray-300 mb-6">
-                        We reduced our attachment count from <strong>13 to 5</strong> by designing multi-purpose tools. Our "Base Robot" features a quick-release latch system.
-                    </p>
-                    <div class="bg-black p-4 rounded-lg border border-gray-800 mb-4 h-80 overflow-hidden relative">
-                         <img src="IMG_1844.jpg" class="w-full h-full object-contain" alt="Top view of Robot">
-                    </div>
-                    <div class="bg-black p-4 rounded-lg border border-gray-800 mb-4">
-                        <div class="flex items-center gap-4">
-                            <div class="bg-gray-800 w-16 h-16 rounded flex items-center justify-center text-gray-500 text-xs text-center">Base<br>Robot</div>
-                            <i class="fas fa-plus text-[#F4A460]"></i>
-                            <div class="bg-gray-800 w-16 h-16 rounded flex items-center justify-center text-gray-500 text-xs text-center">Fork<br>Lift</div>
-                            <i class="fas fa-equals text-white"></i>
-                            <div class="text-white text-sm">Mission: Solar Farm</div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-bold text-white mb-4 border-b border-[#00bcd4] inline-block pb-2">Software: Precision Coding</h3>
-                    <p class="text-gray-300 mb-6">
-                        Reliability is key. We use <strong>Gyro Sensors</strong> to ensure straight lines and accurate turns, correcting for wheel slip.
-                    </p>
-                    <div class="code-block p-6 rounded-lg shadow-lg relative overflow-hidden group">
-                        <div class="absolute top-2 right-2 text-gray-500 text-xs">PYTHON / BLOCKS LOGIC</div>
-                        <p class="text-green-400 text-sm mb-2"># Function: Gyro Straight Drive</p>
-                        <p class="text-blue-300 text-sm">def <span class="text-yellow-300">drive_straight</span>(distance, speed):</p>
-                        <div class="pl-4 text-gray-300 text-sm">
-                            <p>reset_gyro()</p>
-                            <p>target_angle = 0</p>
-                            <p class="text-purple-400">while <span class="text-white">current_dist < distance:</span></p>
-                            <div class="pl-4">
-                                <p>error = target_angle - gyro.angle()</p>
-                                <p>correction = error * <span class="text-orange-400">1.5</span> <span class="text-gray-500"># Gain value</span></p>
-                                <p>left_motor.run(speed - correction)</p>
-                                <p>right_motor.run(speed + correction)</p>
+                            <div class="grid grid-cols-[auto_1fr] gap-x-6 items-start">
+                                <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mt-1">
+                                    <i class="fas fa-times text-red-500 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold text-lg mb-1 uppercase tracking-tight">Environmental Impact</h4>
+                                    <p class="text-stone-400 text-sm leading-relaxed">Excessive trial digging ruins local ecosystems and native soil unnecessarily.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="mt-4 flex gap-4">
-                         <a href="assets/code/gyro_block.llsp" class="text-sm text-[#00bcd4] hover:underline flex items-center gap-2"><i class="fas fa-download"></i> Download MyBlock</a>
-                         <a href="https://github.com/mehta-akshay/robogineers" target="_blank" class="text-sm text-[#00bcd4] hover:underline flex items-center gap-2"><i class="fab fa-github"></i> View Repository</a>
+                </div>
+                <div class="relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-2 border-stone-800">
+                    <img src="b8b68c5e-9db1-4818-b3f9-08ba0f2c1bc7.jpg" alt="Innovation Project Board" class="w-full h-auto">
+                    <div class="absolute top-6 right-6 bg-red-600 text-white font-bold py-2 px-4 rounded-lg shadow-lg">
+                        CHALLENGE IDENTIFIED
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-black">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4">Our Journey</h2>
-                <p class="text-gray-400">From the first brainstorm to the final prototype.</p>
+    <!-- Section: Innovation Stack -->
+    <section id="tech" class="py-24 bg-black px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="section-heading text-4xl md:text-5xl font-bold text-white">The Innovation Stack</h2>
+                <p class="text-stone-500 text-lg uppercase tracking-widest">Bridging the Gap to Ground Truth</p>
             </div>
-            <div class="slider-container shadow-2xl border border-gray-800 mb-12" id="gallerySlider">
-                <!-- Slides injected by JS -->
-            </div>
-             <!-- Video Placeholder -->
-            <div class="max-w-4xl mx-auto text-center mt-12">
-                <h3 class="text-2xl font-bold text-white mb-6">Watch Us In Action</h3>
-                <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-xl overflow-hidden flex items-center justify-center border border-gray-700 p-12">
-                     <div class="text-center">
-                        <i class="fas fa-play-circle text-6xl text-gray-600 mb-4"></i>
-                        <p class="text-gray-400 text-lg">Project Video Coming Soon</p>
-                        <p class="text-sm text-gray-600 mt-2">Upload your video to YouTube and replace this section with the embed code.</p>
-                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Team & Junior Program -->
-    <section id="team" class="py-20 bg-[#1a1a1a]">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white">Our Team Core Values</h2>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div class="rounded-xl overflow-hidden shadow-2xl border border-gray-700">
-                    <img src="4d32857d-1adf-4af6-a18d-471e645e8a9d.jpg" alt="Full Team" class="w-full h-auto">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+                <div class="tech-card p-8 rounded-2xl">
+                    <div class="text-[#00bcd4] text-4xl mb-6"><i class="fas fa-satellite"></i></div>
+                    <h3 class="text-white text-xl font-bold mb-4 uppercase">LiDAR Scanner</h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">Laser pulses strip away tree canopies to create 3D terrain models, exposing ruins hidden by the jungle.</p>
                 </div>
-                <div class="space-y-6">
-                    <div class="bg-gray-900 p-6 rounded-xl border-t-4 border-yellow-500">
-                        <h3 class="text-2xl font-bold text-white mb-4">The "Junior Robogineer"</h3>
-                        <p class="text-gray-400 mb-4">
-                            Sustainability is key to FLL. We've integrated a <strong>2nd Grade apprentice</strong> into our team. He isn't just watching; he's learning the Core Values and basic mechanics.
+                <div class="tech-card p-8 rounded-2xl border-amber-600/30">
+                    <div class="text-amber-500 text-4xl mb-6"><i class="fas fa-wave-square"></i></div>
+                    <h3 class="text-white text-xl font-bold mb-4 uppercase">Dual GPR</h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">Ground Penetrating Radar finds buried walls and artifacts by sensing soil density changes without a single shovel hit.</p>
+                </div>
+                <div class="tech-card p-8 rounded-2xl border-green-600/30">
+                    <div class="text-green-500 text-4xl mb-6"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3 class="text-white text-xl font-bold mb-4 uppercase">GIS Mapping</h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">Coordinate mapping syncs all data to a precise global grid, allowing digital site documentation in real-time.</p>
+                </div>
+                <div class="tech-card p-8 rounded-2xl border-purple-600/30">
+                    <div class="text-purple-500 text-4xl mb-6"><i class="fas fa-robot"></i></div>
+                    <h3 class="text-white text-xl font-bold mb-4 uppercase">AI Detection</h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">On-board machine learning identifies outlines of human structures and artifacts automatically while flying.</p>
+                </div>
+            </div>
+
+            <!-- Impact Section -->
+            <div id="impact" class="bg-stone-900 rounded-3xl p-6 md:p-12 border border-stone-800 shadow-2xl overflow-hidden relative">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="inline-block bg-[#00bcd4]/20 text-[#00bcd4] px-4 py-1 rounded-full text-xs font-bold uppercase mb-4">Scalability & Impact</div>
+                        <h3 class="text-4xl font-bold text-white mb-6 leading-tight">Solving a <span class="text-[#00bcd4]">$30 Billion</span> Annual Loss</h3>
+                        <p class="text-stone-400 mb-8 text-lg">
+                            Underground utility damage costs the U.S. economy <strong>$30 Billion annually</strong>. Our GPR "Ground Truth" technology prevents this by mapping infrastructure before construction starts.
                         </p>
-                        <div class="flex items-center gap-2 text-yellow-500 font-bold"><i class="fas fa-star"></i> Future FLL Champ</div>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-xs mb-2 uppercase tracking-widest"><span class="text-stone-300">Average Fine for Utility Hit</span><span class="text-red-500 font-bold">$50,000+</span></div>
+                                <div class="w-full bg-stone-800 rounded-full h-3"><div class="bar-fill bg-red-500 h-3 rounded-full shadow-[0_0_10px_rgba(239,68,68,0.5)]" style="--final-width: 90%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-2 uppercase tracking-widest"><span class="text-stone-300">Robogineer GPR Drone Scan</span><span class="text-green-500 font-bold">~$100</span></div>
+                                <div class="w-full bg-stone-800 rounded-full h-3"><div class="bar-fill bg-green-500 h-3 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.5)]" style="--final-width: 2%"></div></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-gray-900 p-6 rounded-xl border-t-4 border-blue-500">
-                        <h3 class="text-2xl font-bold text-white mb-4">Community & Expert Review</h3>
-                        <p class="text-gray-400 mb-4">We believe great products come from diverse feedback.</p>
-                        <ul class="space-y-3 text-gray-400">
-                            <li><i class="fas fa-users text-blue-500 mr-2"></i> Consulted with <strong>Association of Iowa Archaeologists</strong></li>
-                            <li><i class="fas fa-user-graduate text-blue-500 mr-2"></i> Mentorship from <strong>Dr. James McGrath-Seegmiller</strong></li>
-                        </ul>
+                    <div class="bg-black/40 p-8 rounded-2xl border border-stone-700 shadow-xl">
+                        <h4 class="text-white font-bold mb-6 text-xl uppercase tracking-tighter border-b border-stone-800 pb-4">Estimated Prototype Investment</h4>
+                        <div class="space-y-4 text-sm font-light">
+                            <div class="flex justify-between pb-2"><span>Dual GPR Suite</span><span class="text-amber-500 font-bold">$2,200</span></div>
+                            <div class="flex justify-between pb-2"><span>LiDAR Mapping Unit</span><span class="text-[#00bcd4] font-bold">$1,100</span></div>
+                            <div class="flex justify-between pb-2"><span>Custom Hexacopter Airframe</span><span class="text-stone-300 font-bold">$800</span></div>
+                            <div class="flex justify-between pb-2"><span>AI/GIS Processing Stack</span><span class="text-stone-300 font-bold">$600</span></div>
+                            <div class="flex justify-between pb-2"><span>Sensor Calibration/Misc</span><span class="text-stone-300 font-bold">$300</span></div>
+                            <div class="flex justify-between font-bold text-white pt-2 border-t border-stone-800 text-lg uppercase tracking-tighter"><span>Total Estimated Cost</span><span class="text-green-500">$5,000</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Open House -->
-    <section id="open-house" class="py-20 bg-[#F4A460] text-black">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-5xl font-bold mb-6">OPEN HOUSE</h2>
-            <p class="text-xl mb-8 font-medium">
-                We need YOUR feedback to make our prototype world-class.
-                Come see the robot, fly the drone simulator, and meet the team.
+    <!-- Robot Lab: Jimmy -->
+    <section id="robot" class="py-24 bg-stone-900 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="section-heading text-4xl md:text-5xl font-bold text-white">Robot Lab: Meet Jimmy</h2>
+                <p class="text-stone-400 mt-4 text-lg">"Thinking like Scientists, Building like Engineers"</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8">
+                    <div class="relative rounded-3xl overflow-hidden border-2 border-stone-700 shadow-2xl">
+                        <img src="image_4cd958.jpg" alt="Jimmy Robot Design Board" class="w-full h-auto">
+                    </div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="tech-card p-6 rounded-2xl border-l-4 border-stone-600">
+                            <h5 class="text-stone-500 font-bold text-xs uppercase tracking-widest mb-3 text-center">Legacy Start</h5>
+                            <ul class="text-stone-400 text-[10px] space-y-2">
+                                <li><i class="fas fa-history mr-2"></i> Heavy Wheels / Bulky Base</li>
+                                <li><i class="fas fa-history mr-2"></i> 13 Custom Attachments</li>
+                                <li><i class="fas fa-history mr-2"></i> Low Mission Efficiency</li>
+                            </ul>
+                        </div>
+                        <div class="tech-card p-6 rounded-2xl border-l-4 border-[#00bcd4]">
+                            <h5 class="text-[#00bcd4] font-bold text-xs uppercase tracking-widest mb-3 text-center">Jimmy V2</h5>
+                            <ul class="text-stone-200 text-[10px] space-y-2">
+                                <li><i class="fas fa-check-circle mr-2"></i> Compact Tractor Frame</li>
+                                <li><i class="fas fa-check-circle mr-2"></i> 6 Modular Swappable Arms</li>
+                                <li><i class="fas fa-check-circle mr-2"></i> 15 Missions Solved</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-10">
+                    <div class="tech-card p-10 rounded-2xl border-l-8 border-[#00bcd4]">
+                        <h4 class="text-2xl font-bold text-white mb-6 uppercase tracking-tight">F1 Turn Deceleration</h4>
+                        <p class="text-stone-400 text-lg mb-8 leading-relaxed">
+                            Inspired by F1 cars slowing for an apex, we drive at full speed for 80% of a turn and then use a <strong>Two-Stage Snap Logic</strong> to ensure 100% heading accuracy.
+                        </p>
+                        
+                        <div class="bg-black/80 p-8 rounded-2xl border border-stone-800 font-mono text-[10px] md:text-xs leading-relaxed shadow-inner">
+                            <div class="flex justify-between items-center mb-6 border-b border-stone-700 pb-4">
+                                <span class="text-[#00bcd4] text-xs font-bold uppercase tracking-widest">Gyro logic V2.0</span>
+                                <span class="text-green-500 font-bold uppercase">Reliability: 100%</span>
+                            </div>
+                            <div class="space-y-3">
+                                <p class="text-blue-300 opacity-60"># STAGE 1: THE FAST GAIN</p>
+                                <div class="p-2 bg-purple-900/20 border-l-4 border-purple-500 rounded">
+                                    <p class="text-purple-300">START_MOVING(30%) UNTIL ABS(YAW) > (TARGET - 30)</p>
+                                </div>
+                                <p class="text-blue-300 opacity-60"># STAGE 2: THE PRECISION SNAP</p>
+                                <div class="p-2 bg-purple-900/20 border-l-4 border-purple-500 rounded">
+                                    <p class="text-purple-300">START_MOVING(10%) UNTIL ABS(YAW) > (TARGET - 1)</p>
+                                </div>
+                                <p class="text-red-500 font-bold mt-4 uppercase tracking-widest">STOP & SYNC HEADING</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section id="values" class="py-24 bg-black px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="section-heading text-4xl md:text-5xl font-bold text-white">Our Core Values</h2>
+                <p class="text-stone-500 text-lg uppercase tracking-widest italic">The Robogineer Spirit</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto mb-20 relative group">
+                <div class="absolute -inset-2 bg-gradient-to-r from-[#00bcd4] to-amber-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative bg-stone-900 rounded-2xl overflow-hidden border-2 border-stone-800 shadow-2xl">
+                    <img src="899a711f-3fae-49da-a8c5-08f66c1f3ca3.jpg" alt="Core Values Board" class="w-full h-auto">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="core-value-badge"><i class="fas fa-users text-3xl text-[#00bcd4] mb-4"></i><h5 class="font-bold text-sm tracking-widest">INCLUSION</h5></div>
+                <div class="core-value-badge"><i class="fas fa-search text-3xl text-amber-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest">DISCOVERY</h5></div>
+                <div class="core-value-badge"><i class="fas fa-hands-helping text-3xl text-green-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest">TEAMWORK</h5></div>
+                <div class="core-value-badge"><i class="fas fa-lightbulb text-3xl text-yellow-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest">INNOVATION</h5></div>
+                <div class="core-value-badge"><i class="fas fa-chart-line text-3xl text-red-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest">IMPACT</h5></div>
+                <div class="core-value-badge"><i class="fas fa-laugh-beam text-3xl text-purple-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest">FUN</h5></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Blueprint -->
+    <section class="py-24 bg-stone-900 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="section-heading text-3xl md:text-4xl font-bold text-white mb-12 uppercase tracking-tighter">Technical Blueprint</h2>
+            <div class="bg-black rounded-3xl p-4 md:p-10 shadow-2xl border-4 border-stone-800 transform hover:scale-[1.01] transition-transform">
+                <img src="Screenshot 2025-11-23 110333.jpg" alt="Drone Diagram" class="w-full h-auto rounded-xl">
+            </div>
+            <p class="text-stone-500 mt-8 text-sm uppercase tracking-widest">Ground Truth V2 System Schematic</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="open-house" class="bg-black py-24 border-t border-stone-800 text-center px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-6xl md:text-8xl font-bold text-white mb-8 tracking-tighter uppercase">JOIN US</h2>
+            <p class="text-xl text-stone-400 mb-16 leading-relaxed max-w-2xl mx-auto font-light">
+                Witness the power of <strong>Ground Truth</strong>. See Jimmy solve 15 missions live on January 24th at the Bettendorf Library.
             </p>
-            <div class="bg-white/90 backdrop-blur rounded-xl p-8 inline-block shadow-xl">
-                <div class="flex flex-col md:flex-row gap-8 text-left">
-                    <div>
-                        <div class="text-sm text-gray-500 uppercase font-bold">When</div>
-                        <div class="text-2xl font-bold">January 24th</div>
-                        <div class="text-lg">2:00 PM - 4:00 PM</div>
-                    </div>
-                    <div class="w-px bg-gray-300 hidden md:block"></div>
-                    <div>
-                        <div class="text-sm text-gray-500 uppercase font-bold">Where</div>
-                        <div class="text-2xl font-bold">Lillienthal Room, Bettendorf Public Library</div>
-                        <div class="text-lg">Bettendorf, Iowa</div>
-                    </div>
+            <div class="inline-flex flex-col md:flex-row gap-12 bg-stone-900/50 backdrop-blur-md p-10 rounded-[3rem] border border-stone-800 text-left shadow-2xl">
+                <div class="space-y-2">
+                    <span class="text-xs font-bold text-amber-500 uppercase tracking-[0.3em]">When & Where</span>
+                    <p class="text-2xl font-bold text-white uppercase tracking-tighter leading-none">Jan 24 | 2-4 PM</p>
+                    <p class="text-stone-400 text-sm">Lillienthal Room, Bettendorf Public Library, IA</p>
                 </div>
+                <div class="w-px bg-stone-700 hidden md:block"></div>
+                <div class="space-y-2">
+                    <span class="text-xs font-bold text-[#00bcd4] uppercase tracking-[0.3em]">Social</span>
+                    <p class="text-2xl font-bold text-white uppercase tracking-tighter leading-none">#FLL71419</p>
+                    <p class="text-stone-400 text-sm uppercase tracking-widest">Unearthed Season</p>
+                </div>
+            </div>
+            <div class="mt-24 pt-10 border-t border-stone-900 flex flex-col md:flex-row justify-between items-center text-stone-600 text-[10px] gap-4 uppercase tracking-[0.4em]">
+                <p>&copy; 2026 Robogineers FLL Team #71419</p>
+                <p>Designed for the FLL Unearthed Season</p>
             </div>
         </div>
-    </section>
-    
-    <!-- UPDATED FAQ Section -->
-    <section id="faq" class="py-20 bg-[#1a1a1a] border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-white mb-12 text-center">Top Questions from Judges</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- TECH: Solar -->
-                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 hover:border-[#00bcd4] transition">
-                    <h4 class="text-[#00bcd4] font-bold text-lg mb-2"><i class="fas fa-bolt mr-2"></i> Solar Power Reality?</h4>
-                    <p class="text-gray-400 text-sm">We know solar panels can't power heavy motors directly. Our innovation is the <strong>"Land & Charge" Strategy</strong>. The drone flies for 20 minutes, lands autonomously, and recharges for hours. This allows it to stay in the field for weeks.</p>
-                </div>
-                <!-- TECH: LiDAR -->
-                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 hover:border-[#00bcd4] transition">
-                    <h4 class="text-[#00bcd4] font-bold text-lg mb-2"><i class="fas fa-tree mr-2"></i> Seeing Through Trees?</h4>
-                    <p class="text-gray-400 text-sm">It's simple probability. Our sensor fires <strong>100,000 pulses/second</strong>. Even in dense forests, some laser beams find tiny gaps between leaves to hit the ground, giving us a perfect "Bare Earth" model.</p>
-                </div>
-                <!-- TECH: GPR -->
-                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 hover:border-[#00bcd4] transition">
-                    <h4 class="text-[#00bcd4] font-bold text-lg mb-2"><i class="fas fa-eye mr-2"></i> X-Ray Vision?</h4>
-                    <p class="text-gray-400 text-sm">We use <strong>GPR (Ground Penetrating Radar)</strong>. Unlike cameras that only see the surface, GPR sends radio waves into the dirt to detect density changes, revealing buried walls or pipes.</p>
-                </div>
-                
-                <!-- ROBOT: F1 Engineering -->
-                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 hover:border-[#F4A460] transition">
-                    <h4 class="text-[#F4A460] font-bold text-lg mb-2"><i class="fas fa-flag-checkered mr-2"></i> F1 Engineering?</h4>
-                    <p class="text-gray-400 text-sm">Inspired by <strong>F1 Racing</strong>, we reinvented our Gyro turns. Instead of the standard slow speed (10%), we drive fast for the first part of the angle (Target - 20°), then decelerate for the final precision adjustment. This "Fast-Approach" logic saved crucial seconds on the field.</p>
-                </div>
-                <!-- TEAM: Iteration -->
-                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 hover:border-yellow-500 transition">
-                    <h4 class="text-yellow-500 font-bold text-lg mb-2"><i class="fas fa-sync mr-2"></i> Did you iterate?</h4>
-                    <p class="text-gray-400 text-sm">Yes! We met with Archaeologist Dr. James McGrath-Seegmiller. He told us battery life was a huge issue in remote areas, which is exactly why we added the <strong>Solar Charging</strong> feature to our design.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Resources -->
-    <section id="resources" class="py-20 bg-black border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-white mb-4">Community Resources</h2>
-                <p class="text-gray-400">We want to help other teams succeed. Use our resources to build better robots.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6 text-left">
-                 <a href="assets/docs/project_research_paper.pdf" class="bg-[#111] p-6 rounded-lg border border-gray-800 hover:border-red-500 transition cursor-pointer block group">
-                    <i class="fas fa-file-pdf text-red-500 text-3xl mb-4 group-hover:scale-110 transition"></i>
-                    <h4 class="text-white font-bold text-lg">Project Research Paper</h4>
-                    <p class="text-gray-500 text-sm mt-2">Full details on our Lithium-Polymer solar charging circuit and LiDAR specs.</p>
-                 </a>
-                 <a href="assets/docs/attachment_guide.pdf" class="bg-[#111] p-6 rounded-lg border border-gray-800 hover:border-blue-500 transition cursor-pointer block group">
-                    <i class="fas fa-cubes text-blue-500 text-3xl mb-4 group-hover:scale-110 transition"></i>
-                    <h4 class="text-white font-bold text-lg">Modular Attachment Guide</h4>
-                    <p class="text-gray-500 text-sm mt-2">Instructions on building quick-release mechanisms for LEGO Spike Prime.</p>
-                 </a>
-                 <a href="assets/code/gyro_logic.py" class="bg-[#111] p-6 rounded-lg border border-gray-800 hover:border-purple-500 transition cursor-pointer block group">
-                    <i class="fas fa-code text-purple-500 text-3xl mb-4 group-hover:scale-110 transition"></i>
-                    <h4 class="text-white font-bold text-lg">Gyro Logic Code</h4>
-                    <p class="text-gray-500 text-sm mt-2">Download our exact Python/Word Block code for precision turning.</p>
-                 </a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-[#111] py-8 text-center text-gray-600 text-sm">
-        <p>&copy; 2026 Robogineers Team #71419. All Rights Reserved.</p>
-        <p class="mt-2">Safety Notice: Our drone operations comply with all FAA regulations. Laser systems are Class 1 Safe.</p>
     </footer>
 
-    <script>
-        // Gallery Images Config
-        const galleryImages = [
-            { src: 'IMG_2339.jpg', caption: 'Dr. James McGrath-Seegmiller providing feedback on our drone concept.' },
-            { src: 'IMG_2341.jpg', caption: 'Team members prototyping the drone frame.' },
-            { src: '3a6d3092-3786-4a20-949e-0cf401a892d6.jpg', caption: 'Presenting the project board to experts.' },
-            { src: 'IMG_2342.jpg', caption: 'Full team presentation at the archaeology office.' },
-            { src: 'IMG_8469.jpg', caption: 'Close up of the final Solar-LiDAR Drone Prototype.' },
-            { src: '6ca8a80a-4e66-4c1d-88b3-645784affdd7.jpg', caption: 'Artifacts buried in our test dig site.' }
-        ];
-
-        const sliderContainer = document.getElementById('gallerySlider');
-        let currentSlide = 0;
-
-        function initSlider() {
-            if(!sliderContainer) return;
-            galleryImages.forEach((img, index) => {
-                const slide = document.createElement('div');
-                slide.className = `slide ${index === 0 ? 'active' : ''}`;
-                slide.style.backgroundImage = `url('${img.src}')`;
-                const caption = document.createElement('div');
-                caption.className = 'slide-caption';
-                caption.innerHTML = `<h3 class="text-xl font-bold text-white">${img.caption}</h3>`;
-                slide.appendChild(caption);
-                sliderContainer.appendChild(slide);
-            });
-            setInterval(nextSlide, 4000);
-        }
-
-        function nextSlide() {
-            const slides = document.querySelectorAll('.slide');
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        document.addEventListener('DOMContentLoaded', initSlider);
-    </script>
 </body>
 </html>
