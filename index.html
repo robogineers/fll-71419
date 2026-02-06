@@ -120,9 +120,6 @@
                         <a href="#open-house" class="bg-amber-600 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-amber-500 transition shadow-lg pulse-btn">JAN 24 EVENT</a>
                     </div>
                 </div>
-                <div class="lg:hidden text-white text-2xl">
-                    <i class="fas fa-bars"></i>
-                </div>
             </div>
         </div>
     </nav>
@@ -131,8 +128,8 @@
     <div class="hero-bg min-h-screen flex items-center justify-center relative pt-20 px-6 text-center">
         <div class="max-w-5xl mx-auto">
             <div class="inline-block bg-[#00bcd4]/10 border border-[#00bcd4] text-[#00bcd4] px-5 py-1.5 rounded-full mb-8 text-sm font-bold tracking-widest uppercase shadow-[0_0_15px_rgba(0,188,212,0.3)]">FLL UNEARTHED INNOVATION PROJECT</div>
-            <h1 class="text-5xl md:text-8xl font-bold text-white mb-4 leading-tight tracking-tighter uppercase">From Guesswork</h1>
-            <h1 class="text-6xl md:text-9xl font-bold text-[#00bcd4] mb-8 leading-tight tracking-tighter uppercase">To Ground Truth</h1>
+            <h1 class="text-5xl md:text-8xl font-bold text-white mb-4 leading-tight tracking-tighter uppercase text-shadow-lg">From Guesswork</h1>
+            <h1 class="text-6xl md:text-9xl font-bold text-[#00bcd4] mb-8 leading-tight tracking-tighter uppercase text-shadow-lg">To Ground Truth</h1>
             <p class="text-xl md:text-3xl text-stone-200 mb-12 font-light max-w-3xl mx-auto leading-relaxed">
                 Archaeology is a race against time. We use <strong>LiDAR & Dual-Frequency GPR</strong> to unearth stories before they are lost to the earth forever.
             </p>
@@ -151,9 +148,9 @@
     <section id="mission" class="py-24 bg-stone-900 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20">
-                <h2 class="section-heading text-4xl md:text-5xl font-bold text-white">The Problem We Chose</h2>
-                <p class="text-stone-400 mt-6 max-w-2xl mx-auto text-lg leading-relaxed italic">
-                    "90% of field research time is spent in the wrong areas."
+                <h2 class="section-heading text-4xl md:text-5xl font-bold text-white uppercase">The Root Problem</h2>
+                <p class="text-amber-500 mt-6 max-w-2xl mx-auto text-2xl md:text-3xl font-bold tracking-tight uppercase">
+                    "Wasting time in the wrong areas"
                 </p>
             </div>
             
@@ -162,41 +159,55 @@
                     <div class="tech-card p-8 md:p-10 rounded-3xl border border-stone-700 shadow-2xl relative">
                         <div class="flex items-center gap-4 mb-8">
                             <i class="fas fa-search-minus text-red-500 text-4xl"></i>
-                            <h3 class="text-3xl font-bold text-white">Why We Chose This</h3>
+                            <h3 class="text-3xl font-bold text-white uppercase">Why We Chose This</h3>
                         </div>
                         
                         <p class="text-stone-300 leading-relaxed text-lg mb-8 border-b border-stone-800 pb-8">
-                            After interviewing <strong>Dr. James McGrath-Seegmiller</strong> and researching the <em>Association of Iowa Archaeologists</em>, we realized that current methods rely too much on surface-level luck.
+                            After interviewing <strong>Dr. James McGrath-Seegmiller</strong>, we identified that the biggest failure in archaeology is <strong>blind digging</strong>. When identification relies on guesswork, it triggers a chain reaction of dangerous and costly issues.
                         </p>
                         
                         <div class="space-y-6">
-                            <div class="grid grid-cols-[auto_1fr] gap-x-6 items-start">
-                                <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mt-1">
-                                    <i class="fas fa-times text-red-500 text-sm"></i>
+                            <!-- Consequence 1 -->
+                            <div class="grid grid-cols-[auto_1fr] gap-x-6 items-start group">
+                                <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center mt-1 group-hover:bg-red-500 group-hover:text-white transition-colors">
+                                    <i class="fas fa-skull-crossbones"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-bold text-lg mb-1 uppercase tracking-tight">Artifact Damage</h4>
-                                    <p class="text-stone-400 text-sm leading-relaxed">Blind digging with heavy machinery destroys fragile history before it is ever mapped.</p>
+                                    <h4 class="text-white font-bold text-lg mb-1 uppercase tracking-tight group-hover:text-red-500 transition-colors">Artifact Damage</h4>
+                                    <p class="text-stone-400 text-sm leading-relaxed">Guessing where to dig means heavy machinery hits fragile history before it is ever mapped. Once it's hit, the story is lost.</p>
                                 </div>
                             </div>
                             
-                            <div class="grid grid-cols-[auto_1fr] gap-x-6 items-start">
-                                <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mt-1">
-                                    <i class="fas fa-times text-red-500 text-sm"></i>
+                            <!-- Consequence 2 -->
+                            <div class="grid grid-cols-[auto_1fr] gap-x-6 items-start group">
+                                <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center mt-1 group-hover:bg-red-500 group-hover:text-white transition-colors">
+                                    <i class="fas fa-exclamation-triangle"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-bold text-lg mb-1 uppercase tracking-tight">Tunnel Collapse</h4>
-                                    <p class="text-stone-400 text-sm leading-relaxed">Undetected voids go unseen, risking the safety of excavation teams.</p>
+                                    <h4 class="text-white font-bold text-lg mb-1 uppercase tracking-tight group-hover:text-red-500 transition-colors">Safety: Tunnel Collapse</h4>
+                                    <p class="text-stone-400 text-sm leading-relaxed">Undetected subterranean voids and tunnels pose extreme safety risks. Ground Truth tech "sees" these before the first shovel hits.</p>
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-[auto_1fr] gap-x-6 items-start">
-                                <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center mt-1">
-                                    <i class="fas fa-times text-red-500 text-sm"></i>
+                            <!-- Consequence 3 -->
+                            <div class="grid grid-cols-[auto_1fr] gap-x-6 items-start group">
+                                <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center mt-1 group-hover:bg-red-500 group-hover:text-white transition-colors">
+                                    <i class="fas fa-leaf"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-bold text-lg mb-1 uppercase tracking-tight">Environmental Impact</h4>
-                                    <p class="text-stone-400 text-sm leading-relaxed">Excessive trial digging ruins local ecosystems and native soil unnecessarily.</p>
+                                    <h4 class="text-white font-bold text-lg mb-1 uppercase tracking-tight group-hover:text-red-500 transition-colors">Environmental Impact</h4>
+                                    <p class="text-stone-400 text-sm leading-relaxed">Excessive trial pits ruin local ecosystems. By knowing exactly where to dig, we minimize the human footprint on the earth.</p>
+                                </div>
+                            </div>
+
+                            <!-- Consequence 4 -->
+                            <div class="grid grid-cols-[auto_1fr] gap-x-6 items-start group">
+                                <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center mt-1 group-hover:bg-red-500 group-hover:text-white transition-colors">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold text-lg mb-1 uppercase tracking-tight group-hover:text-red-500 transition-colors">Wasted Labor</h4>
+                                    <p class="text-stone-400 text-sm leading-relaxed">Documentation and manual labor currently consume months of funding. Our solution turns months into mere days of precise work.</p>
                                 </div>
                             </div>
                         </div>
@@ -204,8 +215,8 @@
                 </div>
                 <div class="relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-2 border-stone-800">
                     <img src="b8b68c5e-9db1-4818-b3f9-08ba0f2c1bc7.jpg" alt="Innovation Project Board" class="w-full h-auto">
-                    <div class="absolute top-6 right-6 bg-red-600 text-white font-bold py-2 px-4 rounded-lg shadow-lg">
-                        CHALLENGE IDENTIFIED
+                    <div class="absolute top-6 right-6 bg-red-600 text-white font-bold py-2 px-4 rounded-lg shadow-lg uppercase tracking-widest text-xs">
+                        The Guesswork Problem
                     </div>
                 </div>
             </div>
@@ -216,30 +227,30 @@
     <section id="tech" class="py-24 bg-black px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20">
-                <h2 class="section-heading text-4xl md:text-5xl font-bold text-white">The Innovation Stack</h2>
-                <p class="text-stone-500 text-lg uppercase tracking-widest">Bridging the Gap to Ground Truth</p>
+                <h2 class="section-heading text-4xl md:text-5xl font-bold text-white uppercase">The Innovation Stack</h2>
+                <p class="text-stone-500 text-lg uppercase tracking-widest font-semibold">Bridging the Gap to Ground Truth</p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
                 <div class="tech-card p-8 rounded-2xl">
                     <div class="text-[#00bcd4] text-4xl mb-6"><i class="fas fa-satellite"></i></div>
                     <h3 class="text-white text-xl font-bold mb-4 uppercase">LiDAR Scanner</h3>
-                    <p class="text-stone-400 text-sm leading-relaxed">Laser pulses strip away tree canopies to create 3D terrain models, exposing ruins hidden by the jungle.</p>
+                    <p class="text-stone-400 text-sm leading-relaxed font-light">Laser pulses strip away tree canopies to create 3D terrain models, exposing ruins hidden by the jungle floor.</p>
                 </div>
                 <div class="tech-card p-8 rounded-2xl border-amber-600/30">
                     <div class="text-amber-500 text-4xl mb-6"><i class="fas fa-wave-square"></i></div>
                     <h3 class="text-white text-xl font-bold mb-4 uppercase">Dual GPR</h3>
-                    <p class="text-stone-400 text-sm leading-relaxed">Ground Penetrating Radar finds buried walls and artifacts by sensing soil density changes without a single shovel hit.</p>
+                    <p class="text-stone-400 text-sm leading-relaxed font-light">Ground Penetrating Radar finds buried walls and artifacts by sensing soil density changes without moving any dirt.</p>
                 </div>
                 <div class="tech-card p-8 rounded-2xl border-green-600/30">
                     <div class="text-green-500 text-4xl mb-6"><i class="fas fa-map-marked-alt"></i></div>
                     <h3 class="text-white text-xl font-bold mb-4 uppercase">GIS Mapping</h3>
-                    <p class="text-stone-400 text-sm leading-relaxed">Coordinate mapping syncs all data to a precise global grid, allowing digital site documentation in real-time.</p>
+                    <p class="text-stone-400 text-sm leading-relaxed font-light">Coordinate mapping syncs all data to a precise global grid, allowing digital site documentation in real-time.</p>
                 </div>
                 <div class="tech-card p-8 rounded-2xl border-purple-600/30">
-                    <div class="text-purple-500 text-4xl mb-6"><i class="fas fa-robot"></i></div>
+                    <div class="text-purple-500 text-4xl mb-6"><i class="fas fa-brain"></i></div>
                     <h3 class="text-white text-xl font-bold mb-4 uppercase">AI Detection</h3>
-                    <p class="text-stone-400 text-sm leading-relaxed">On-board machine learning identifies outlines of human structures and artifacts automatically while flying.</p>
+                    <p class="text-stone-400 text-sm leading-relaxed font-light">On-board machine learning identifies outlines of human structures and artifacts automatically while in flight.</p>
                 </div>
             </div>
 
@@ -247,9 +258,9 @@
             <div id="impact" class="bg-stone-900 rounded-3xl p-6 md:p-12 border border-stone-800 shadow-2xl overflow-hidden relative">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <div>
-                        <div class="inline-block bg-[#00bcd4]/20 text-[#00bcd4] px-4 py-1 rounded-full text-xs font-bold uppercase mb-4">Scalability & Impact</div>
-                        <h3 class="text-4xl font-bold text-white mb-6 leading-tight">Solving a <span class="text-[#00bcd4]">$30 Billion</span> Annual Loss</h3>
-                        <p class="text-stone-400 mb-8 text-lg">
+                        <div class="inline-block bg-[#00bcd4]/20 text-[#00bcd4] px-4 py-1 rounded-full text-xs font-bold uppercase mb-4 tracking-widest">Scalability & Impact</div>
+                        <h3 class="text-4xl font-bold text-white mb-6 leading-tight uppercase">Solving a <span class="text-[#00bcd4]">$30 Billion</span> Loss</h3>
+                        <p class="text-stone-400 mb-8 text-lg font-light leading-relaxed">
                             Underground utility damage costs the U.S. economy <strong>$30 Billion annually</strong>. Our GPR "Ground Truth" technology prevents this by mapping infrastructure before construction starts.
                         </p>
                         
@@ -272,7 +283,7 @@
                             <div class="flex justify-between pb-2"><span>Custom Hexacopter Airframe</span><span class="text-stone-300 font-bold">$800</span></div>
                             <div class="flex justify-between pb-2"><span>AI/GIS Processing Stack</span><span class="text-stone-300 font-bold">$600</span></div>
                             <div class="flex justify-between pb-2"><span>Sensor Calibration/Misc</span><span class="text-stone-300 font-bold">$300</span></div>
-                            <div class="flex justify-between font-bold text-white pt-2 border-t border-stone-800 text-lg uppercase tracking-tighter"><span>Total Estimated Cost</span><span class="text-green-500">$5,000</span></div>
+                            <div class="flex justify-between font-bold text-white pt-2 border-t border-stone-800 text-lg uppercase tracking-tighter"><span>Total Estimated Cost</span><span class="text-green-500 font-mono">$5,000</span></div>
                         </div>
                     </div>
                 </div>
@@ -284,8 +295,8 @@
     <section id="robot" class="py-24 bg-stone-900 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20">
-                <h2 class="section-heading text-4xl md:text-5xl font-bold text-white">Robot Lab: Meet Jimmy</h2>
-                <p class="text-stone-400 mt-4 text-lg">"Thinking like Scientists, Building like Engineers"</p>
+                <h2 class="section-heading text-4xl md:text-5xl font-bold text-white uppercase">Robot Lab: Meet Jimmy</h2>
+                <p class="text-stone-400 mt-4 text-lg font-light italic">"Thinking like Scientists, Building like Engineers"</p>
             </div>
             
             <div class="grid lg:grid-cols-2 gap-16 items-start">
@@ -293,21 +304,21 @@
                     <div class="relative rounded-3xl overflow-hidden border-2 border-stone-700 shadow-2xl">
                         <img src="image_4cd958.jpg" alt="Jimmy Robot Design Board" class="w-full h-auto">
                     </div>
-                    <div class="grid grid-cols-2 gap-6">
+                    <div class="grid grid-cols-2 gap-6 text-center">
                         <div class="tech-card p-6 rounded-2xl border-l-4 border-stone-600">
-                            <h5 class="text-stone-500 font-bold text-xs uppercase tracking-widest mb-3 text-center">Legacy Start</h5>
-                            <ul class="text-stone-400 text-[10px] space-y-2">
-                                <li><i class="fas fa-history mr-2"></i> Heavy Wheels / Bulky Base</li>
-                                <li><i class="fas fa-history mr-2"></i> 13 Custom Attachments</li>
-                                <li><i class="fas fa-history mr-2"></i> Low Mission Efficiency</li>
+                            <h5 class="text-stone-500 font-bold text-xs uppercase tracking-widest mb-3">Legacy Start</h5>
+                            <ul class="text-stone-400 text-[10px] space-y-2 uppercase">
+                                <li>Heavy Wheels</li>
+                                <li>Bulky Base</li>
+                                <li>13 Attachments</li>
                             </ul>
                         </div>
                         <div class="tech-card p-6 rounded-2xl border-l-4 border-[#00bcd4]">
-                            <h5 class="text-[#00bcd4] font-bold text-xs uppercase tracking-widest mb-3 text-center">Jimmy V2</h5>
-                            <ul class="text-stone-200 text-[10px] space-y-2">
-                                <li><i class="fas fa-check-circle mr-2"></i> Compact Tractor Frame</li>
-                                <li><i class="fas fa-check-circle mr-2"></i> 6 Modular Swappable Arms</li>
-                                <li><i class="fas fa-check-circle mr-2"></i> 15 Missions Solved</li>
+                            <h5 class="text-[#00bcd4] font-bold text-xs uppercase tracking-widest mb-3">Jimmy V2</h5>
+                            <ul class="text-stone-200 text-[10px] space-y-2 uppercase font-bold">
+                                <li>Compact Tractor Frame</li>
+                                <li>6 Modular Arms</li>
+                                <li>15 Missions Solved</li>
                             </ul>
                         </div>
                     </div>
@@ -316,25 +327,25 @@
                 <div class="space-y-10">
                     <div class="tech-card p-10 rounded-2xl border-l-8 border-[#00bcd4]">
                         <h4 class="text-2xl font-bold text-white mb-6 uppercase tracking-tight">F1 Turn Deceleration</h4>
-                        <p class="text-stone-400 text-lg mb-8 leading-relaxed">
-                            Inspired by F1 cars slowing for an apex, we drive at full speed for 80% of a turn and then use a <strong>Two-Stage Snap Logic</strong> to ensure 100% heading accuracy.
+                        <p class="text-stone-400 text-lg mb-8 leading-relaxed font-light">
+                            Inspired by F1 cars slowing for an apex, we drive at full speed for 80% of a turn and then use a <strong>Two-Stage Snap Logic</strong> to ensure 100% heading accuracy on the field.
                         </p>
                         
                         <div class="bg-black/80 p-8 rounded-2xl border border-stone-800 font-mono text-[10px] md:text-xs leading-relaxed shadow-inner">
                             <div class="flex justify-between items-center mb-6 border-b border-stone-700 pb-4">
                                 <span class="text-[#00bcd4] text-xs font-bold uppercase tracking-widest">Gyro logic V2.0</span>
-                                <span class="text-green-500 font-bold uppercase">Reliability: 100%</span>
+                                <span class="text-green-500 font-bold uppercase">Accuracy: 100%</span>
                             </div>
                             <div class="space-y-3">
-                                <p class="text-blue-300 opacity-60"># STAGE 1: THE FAST GAIN</p>
+                                <p class="text-blue-300 opacity-60 uppercase font-bold"># STAGE 1: THE FAST GAIN</p>
                                 <div class="p-2 bg-purple-900/20 border-l-4 border-purple-500 rounded">
-                                    <p class="text-purple-300">START_MOVING(30%) UNTIL ABS(YAW) > (TARGET - 30)</p>
+                                    <p class="text-purple-300 uppercase tracking-tighter">START_MOVING(30%) UNTIL ABS(YAW) > (TARGET - 30)</p>
                                 </div>
-                                <p class="text-blue-300 opacity-60"># STAGE 2: THE PRECISION SNAP</p>
+                                <p class="text-blue-300 opacity-60 uppercase font-bold"># STAGE 2: THE PRECISION SNAP</p>
                                 <div class="p-2 bg-purple-900/20 border-l-4 border-purple-500 rounded">
-                                    <p class="text-purple-300">START_MOVING(10%) UNTIL ABS(YAW) > (TARGET - 1)</p>
+                                    <p class="text-purple-300 uppercase tracking-tighter">START_MOVING(10%) UNTIL ABS(YAW) > (TARGET - 1)</p>
                                 </div>
-                                <p class="text-red-500 font-bold mt-4 uppercase tracking-widest">STOP & SYNC HEADING</p>
+                                <p class="text-red-500 font-bold mt-4 uppercase tracking-widest text-center">STOP & SYNC HEADING</p>
                             </div>
                         </div>
                     </div>
@@ -347,24 +358,24 @@
     <section id="values" class="py-24 bg-black px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="section-heading text-4xl md:text-5xl font-bold text-white">Our Core Values</h2>
-                <p class="text-stone-500 text-lg uppercase tracking-widest italic">The Robogineer Spirit</p>
+                <h2 class="section-heading text-4xl md:text-5xl font-bold text-white uppercase">Our Core Values</h2>
+                <p class="text-stone-500 text-lg uppercase tracking-widest font-semibold">The Robogineer Spirit</p>
             </div>
             
             <div class="max-w-4xl mx-auto mb-20 relative group">
                 <div class="absolute -inset-2 bg-gradient-to-r from-[#00bcd4] to-amber-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
                 <div class="relative bg-stone-900 rounded-2xl overflow-hidden border-2 border-stone-800 shadow-2xl">
-                    <img src="899a711f-3fae-49da-a8c5-08f66c1f3ca3.jpg" alt="Core Values Board" class="w-full h-auto">
+                    <img src="899a711f-3fae-49da-a8c5-08f66c1f3ca3.jpg" alt="Core Values Board" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700">
                 </div>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <div class="core-value-badge"><i class="fas fa-users text-3xl text-[#00bcd4] mb-4"></i><h5 class="font-bold text-sm tracking-widest">INCLUSION</h5></div>
-                <div class="core-value-badge"><i class="fas fa-search text-3xl text-amber-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest">DISCOVERY</h5></div>
-                <div class="core-value-badge"><i class="fas fa-hands-helping text-3xl text-green-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest">TEAMWORK</h5></div>
-                <div class="core-value-badge"><i class="fas fa-lightbulb text-3xl text-yellow-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest">INNOVATION</h5></div>
-                <div class="core-value-badge"><i class="fas fa-chart-line text-3xl text-red-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest">IMPACT</h5></div>
-                <div class="core-value-badge"><i class="fas fa-laugh-beam text-3xl text-purple-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest">FUN</h5></div>
+                <div class="core-value-badge"><i class="fas fa-users text-3xl text-[#00bcd4] mb-4"></i><h5 class="font-bold text-sm tracking-widest uppercase">Inclusion</h5></div>
+                <div class="core-value-badge"><i class="fas fa-search text-3xl text-amber-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest uppercase">Discovery</h5></div>
+                <div class="core-value-badge"><i class="fas fa-hands-helping text-3xl text-green-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest uppercase">Teamwork</h5></div>
+                <div class="core-value-badge"><i class="fas fa-lightbulb text-3xl text-yellow-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest uppercase">Innovation</h5></div>
+                <div class="core-value-badge"><i class="fas fa-chart-line text-3xl text-red-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest uppercase">Impact</h5></div>
+                <div class="core-value-badge"><i class="fas fa-laugh-beam text-3xl text-purple-500 mb-4"></i><h5 class="font-bold text-sm tracking-widest uppercase">Fun</h5></div>
             </div>
         </div>
     </section>
@@ -374,9 +385,9 @@
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="section-heading text-3xl md:text-4xl font-bold text-white mb-12 uppercase tracking-tighter">Technical Blueprint</h2>
             <div class="bg-black rounded-3xl p-4 md:p-10 shadow-2xl border-4 border-stone-800 transform hover:scale-[1.01] transition-transform">
-                <img src="Screenshot 2025-11-23 110333.jpg" alt="Drone Diagram" class="w-full h-auto rounded-xl">
+                <img src="Screenshot 2025-11-23 110333.jpg" alt="Drone Diagram" class="w-full h-auto rounded-xl shadow-2xl">
             </div>
-            <p class="text-stone-500 mt-8 text-sm uppercase tracking-widest">Ground Truth V2 System Schematic</p>
+            <p class="text-stone-500 mt-8 text-sm uppercase tracking-widest font-bold">Ground Truth V2 System Schematic</p>
         </div>
     </section>
 
@@ -395,13 +406,13 @@
                 </div>
                 <div class="w-px bg-stone-700 hidden md:block"></div>
                 <div class="space-y-2">
-                    <span class="text-xs font-bold text-[#00bcd4] uppercase tracking-[0.3em]">Social</span>
+                    <span class="text-xs font-bold text-[#00bcd4] uppercase tracking-[0.3em]">Identity</span>
                     <p class="text-2xl font-bold text-white uppercase tracking-tighter leading-none">#FLL71419</p>
-                    <p class="text-stone-400 text-sm uppercase tracking-widest">Unearthed Season</p>
+                    <p class="text-stone-400 text-sm uppercase tracking-widest font-bold">Unearthed Season</p>
                 </div>
             </div>
-            <div class="mt-24 pt-10 border-t border-stone-900 flex flex-col md:flex-row justify-between items-center text-stone-600 text-[10px] gap-4 uppercase tracking-[0.4em]">
-                <p>&copy; 2026 Robogineers FLL Team #71419</p>
+            <div class="mt-24 pt-10 border-t border-stone-900 flex flex-col md:flex-row justify-between items-center text-stone-600 text-[10px] gap-4 uppercase tracking-[0.4em] font-bold">
+                <p>&copy; 2026 Robogineers FLL Team #71419. Bettendorf, Iowa.</p>
                 <p>Designed for the FLL Unearthed Season</p>
             </div>
         </div>
