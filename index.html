@@ -495,29 +495,27 @@
 
     <script>
         // --- Gallery Configuration ---
-        // Manually cataloged ALL images from the repo to ensure award-winning caption quality
-        // No auto-discovery "random IDs" allowed.
+        // Manually cataloged ALL images to provide high-quality, judge-friendly captions.
+        // Auto-discovery has been removed to prevent random IDs.
         const galleryImages = [
-            // Core Team Photos
-            { src: 'IMG_2339.jpg', caption: 'Expert Mentorship: Dr. James McGrath-Seegmiller providing feedback.' },
-            { src: 'IMG_2341.jpg', caption: 'Engineering Phase: Prototyping the modular drone frame.' },
-            { src: 'IMG_2342.jpg', caption: 'Site Visit: The team presenting at the regional archaeology office.' },
-            
-            // Project Boards (Critical for Judging)
-            { src: 'b8b68c5e-9db1-4818-b3f9-08ba0f2c1bc7.jpg', caption: 'Problem Identification: The Blind Digging Challenge.' },
-            { src: 'image_4cd958.jpg', caption: 'Engineering Design: Evolution of the "Jimmy" Robot.' },
-            { src: 'image_4cdcc1.jpg', caption: 'Community Outreach: Mentoring Team #3054.' },
-            { src: '899a711f-3fae-49da-a8c5-08f66c1f3ca3.jpg', caption: 'Core Values: Celebrating Inclusion and Fun.' },
-            
-            // Technical & Field Validation
-            { src: 'Screenshot 2025-11-23 110333.jpg', caption: 'Technical Innovation: Dual-Sensor Drone Blueprint.' },
-            { src: 'IMG_8469.jpg', caption: 'Final Prototype: The Ground Truth Dual-Sensor Drone V2.0.' },
-            { src: '6ca8a80a-4e66-4c1d-88b3-645784affdd7.jpg', caption: 'Field Testing: Identifying artifacts in our mock dig site.' },
-            
-            // Impact & Misc
-            { src: '3a6d3092-3786-4a20-949e-0cf401a892d6.jpg', caption: 'Validation: Presenting the Ground Truth project to university experts.' },
-            { src: 'a30ebffd-25b5-499d-b8d3-7028f5534253.jpg', caption: 'Impact: Community validation across the Quad Cities.' },
-            { src: '4328cef2-e59a-43dc-9e4b-b52a36fed657.jpg', caption: 'Team Robogineers: FLL Unearthed Season.' }
+            // Core Board Images (The most important for judges)
+            { src: 'b8b68c5e-9db1-4818-b3f9-08ba0f2c1bc7.jpg', caption: 'Problem Identification: Defining the Risks of Blind Digging' },
+            { src: 'image_4cd958.jpg', caption: 'Engineering Design: The Evolution of "Jimmy" the Robot' },
+            { src: 'image_4cdcc1.jpg', caption: 'Community Outreach: Giving Back to Team #3054' },
+            { src: '899a711f-3fae-49da-a8c5-08f66c1f3ca3.jpg', caption: 'Core Values: Our Spirit of Fun, Teamwork, and Inclusion' },
+            { src: 'image_4cd9d8.jpg', caption: 'Feedback Loop: Incorporating Community Advice' },
+            { src: 'image_56f067.png', caption: 'Research Data: Why We Chose This Problem' },
+
+            // Innovation & Technical Artifacts
+            { src: 'Screenshot 2025-11-23 110333.jpg', caption: 'Technical Innovation: Dual-Sensor Drone Blueprint' },
+            { src: 'b8565387-4bcd-45ae-bde1-3da93e314715.jpg', caption: 'Final Prototype: The "History with Future Tech" Solar Drone' },
+            { src: '23569090-9E0B-42E6-BB89-7FFE5EBDD34A.jpg', caption: 'Data Visualization: Layered LiDAR & GPR Mapping' },
+            { src: 'IMG_2367.jpg', caption: 'Code Logic: The F1-Inspired Gyro Turn Algorithm' },
+
+            // Team in Action
+            { src: '4328cef2-e59a-43dc-9e4b-b52a36fed657.jpg', caption: 'The Team: Presenting Our Findings at the Regional Event' },
+            { src: 'a30ebffd-25b5-499d-b8d3-7028f5534253.jpg', caption: 'Community Day: Sharing our Project with the Public' },
+            { src: 'image_4cda15.jpg', caption: 'Robot Strategy: Explaining Reliability to Judges' }
         ];
 
         const sliderContainer = document.getElementById('gallerySlider');
@@ -537,7 +535,7 @@
                 // Create caption
                 const caption = document.createElement('div');
                 caption.className = 'slide-caption';
-                caption.innerHTML = `<h3 class="text-lg md:text-2xl font-bold text-white uppercase tracking-wider">${img.caption}</h3>`;
+                caption.innerHTML = `<h3 class="text-lg md:text-2xl font-bold text-white uppercase tracking-wider shadow-black drop-shadow-md">${img.caption}</h3>`;
                 
                 slide.appendChild(caption);
                 sliderContainer.appendChild(slide);
