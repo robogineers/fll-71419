@@ -83,7 +83,7 @@
             border-radius: 2rem;
             background-color: #000;
         }
-        @media (min-width: 768px) { .slider-container { height: 550px; } }
+        @media (min-width: 768px) { .slider-container { height: 600px; } }
         
         .slide {
             position: absolute;
@@ -93,7 +93,8 @@
             height: 100%;
             opacity: 0;
             transition: opacity 1s ease-in-out;
-            background-size: cover;
+            /* Changed from cover to contain to prevent cropping of text boards */
+            background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
         }
@@ -101,7 +102,7 @@
         .slide.active { opacity: 1; }
 
         .slide-caption {
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.6), transparent);
             position: absolute;
             bottom: 0;
             width: 100%;
@@ -461,7 +462,8 @@
         <h2 class="section-heading text-4xl font-bold text-white mb-16 uppercase tracking-tighter">System Blueprint</h2>
         <div class="max-w-5xl mx-auto bg-black rounded-[3rem] p-6 md:p-16 shadow-2xl border-[6px] border-stone-800 relative group">
             <div class="absolute inset-0 bg-[#00bcd4]/5 rounded-[2.8rem] opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <img src="Screenshot 2025-11-23 110333.jpg" alt="Drone Diagram" class="w-full h-auto rounded-2xl shadow-3xl relative z-10">
+            <!-- Added object-contain to ensure blueprint is not cut off -->
+            <img src="Screenshot 2025-11-23 110333.jpg" alt="Drone Diagram" class="w-full h-auto rounded-2xl shadow-3xl relative z-10 object-contain">
         </div>
         <p class="text-stone-600 mt-12 text-sm uppercase tracking-[0.5em] font-bold">Ground Truth V2 System Schematic</p>
     </section>
