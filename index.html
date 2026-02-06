@@ -495,71 +495,39 @@
 
     <script>
         // --- Gallery Configuration ---
-        const githubRepo = 'robogineers/fll-71419';
-        const githubBranch = 'main'; // Change to 'master' if needed
-        
-        // 1. Hardcoded "Featured" Images with Custom Captions
-        // These will always appear first.
-        const featuredImages = [
+        // Manually cataloged ALL images from the repo to ensure award-winning caption quality
+        // No auto-discovery "random IDs" allowed.
+        const galleryImages = [
+            // Core Team Photos
             { src: 'IMG_2339.jpg', caption: 'Expert Mentorship: Dr. James McGrath-Seegmiller providing feedback.' },
             { src: 'IMG_2341.jpg', caption: 'Engineering Phase: Prototyping the modular drone frame.' },
-            { src: '3a6d3092-3786-4a20-949e-0cf401a892d6.jpg', caption: 'Validation: Presenting the Ground Truth project to university experts.' },
             { src: 'IMG_2342.jpg', caption: 'Site Visit: The team presenting at the regional archaeology office.' },
+            
+            // Project Boards (Critical for Judging)
+            { src: 'b8b68c5e-9db1-4818-b3f9-08ba0f2c1bc7.jpg', caption: 'Problem Identification: The Blind Digging Challenge.' },
+            { src: 'image_4cd958.jpg', caption: 'Engineering Design: Evolution of the "Jimmy" Robot.' },
+            { src: 'image_4cdcc1.jpg', caption: 'Community Outreach: Mentoring Team #3054.' },
+            { src: '899a711f-3fae-49da-a8c5-08f66c1f3ca3.jpg', caption: 'Core Values: Celebrating Inclusion and Fun.' },
+            
+            // Technical & Field Validation
+            { src: 'Screenshot 2025-11-23 110333.jpg', caption: 'Technical Innovation: Dual-Sensor Drone Blueprint.' },
             { src: 'IMG_8469.jpg', caption: 'Final Prototype: The Ground Truth Dual-Sensor Drone V2.0.' },
             { src: '6ca8a80a-4e66-4c1d-88b3-645784affdd7.jpg', caption: 'Field Testing: Identifying artifacts in our mock dig site.' },
-            { src: 'a30ebffd-25b5-499d-b8d3-7028f5534253.jpg', caption: 'Impact: Community validation across the Quad Cities.' }
+            
+            // Impact & Misc
+            { src: '3a6d3092-3786-4a20-949e-0cf401a892d6.jpg', caption: 'Validation: Presenting the Ground Truth project to university experts.' },
+            { src: 'a30ebffd-25b5-499d-b8d3-7028f5534253.jpg', caption: 'Impact: Community validation across the Quad Cities.' },
+            { src: '4328cef2-e59a-43dc-9e4b-b52a36fed657.jpg', caption: 'Team Robogineers: FLL Unearthed Season.' }
         ];
 
-        // 2. Main Gallery Logic
-        let allGalleryImages = [...featuredImages]; 
         const sliderContainer = document.getElementById('gallerySlider');
         let currentSlide = 0;
 
-        async function loadGallery() {
-            try {
-                // Attempt to fetch file list from GitHub API to auto-discover other images
-                console.log(`Checking GitHub repo ${githubRepo} for images...`);
-                const response = await fetch(`https://api.github.com/repos/${githubRepo}/contents/?ref=${githubBranch}`);
-                
-                if (response.ok) {
-                    const files = await response.json();
-                    
-                    // Filter for image files
-                    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
-                    const repoImages = files.filter(file => {
-                        const lowerName = file.name.toLowerCase();
-                        return imageExtensions.some(ext => lowerName.endsWith(ext));
-                    });
-
-                    // Add new images found in repo that aren't already featured
-                    repoImages.forEach(file => {
-                        // Check if this file is already in our featured list (matching by filename)
-                        const isFeatured = featuredImages.some(img => img.src.includes(file.name));
-                        
-                        if (!isFeatured) {
-                            allGalleryImages.push({
-                                src: file.download_url, // Use direct GitHub link
-                                caption: 'Project Artifact: ' + file.name.replace(/\.[^/.]+$/, "").replace(/[_-]/g, " ") // Generate caption from filename
-                            });
-                        }
-                    });
-                    console.log(`Loaded ${allGalleryImages.length} images total.`);
-                } else {
-                    console.warn('Could not fetch GitHub directory. Showing featured images only.');
-                }
-            } catch (err) {
-                console.warn('Auto-discovery failed (offline or private repo). Showing featured images only.');
-            }
-
-            // Initialize slider with the final list
-            initSlider();
-        }
-
         function initSlider() {
             if(!sliderContainer) return;
-            sliderContainer.innerHTML = ''; // Clear loading state
+            sliderContainer.innerHTML = ''; // Clear existing content
 
-            allGalleryImages.forEach((img, index) => {
+            galleryImages.forEach((img, index) => {
                 const slide = document.createElement('div');
                 slide.className = `slide ${index === 0 ? 'active' : ''}`;
                 
@@ -575,8 +543,8 @@
                 sliderContainer.appendChild(slide);
             });
             
-            // Start rotation
-            if (allGalleryImages.length > 1) {
+            // Start rotation if more than 1 image
+            if (galleryImages.length > 1) {
                 setInterval(nextSlide, 5000);
             }
         }
@@ -590,7 +558,7 @@
             slides[currentSlide].classList.add('active');
         }
 
-        document.addEventListener('DOMContentLoaded', loadGallery);
+        document.addEventListener('DOMContentLoaded', initSlider);
     </script>
 </body>
 </html>
