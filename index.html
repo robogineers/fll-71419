@@ -31,7 +31,8 @@
         }
 
         .hero-bg {
-            background: linear-gradient(rgba(12, 10, 9, 0.85), rgba(12, 10, 9, 0.95)), url('4328cef2-e59a-43dc-9e4b-b52a36fed657.jpg'); 
+            /* Using GitHub hosted image for hero background to ensure it loads */
+            background: linear-gradient(rgba(12, 10, 9, 0.85), rgba(12, 10, 9, 0.95)), url('https://raw.githubusercontent.com/robogineers/fll-71419/main/4328cef2-e59a-43dc-9e4b-b52a36fed657.jpg'); 
             background-size: cover;
             background-position: center;
         }
@@ -78,12 +79,12 @@
         /* Gallery Slider Styles */
         .slider-container {
             position: relative;
-            height: 400px;
+            height: 400px; /* Mobile height */
             overflow: hidden;
             border-radius: 2rem;
             background-color: #000;
         }
-        @media (min-width: 768px) { .slider-container { height: 600px; } }
+        @media (min-width: 768px) { .slider-container { height: 650px; } } /* Desktop height */
         
         .slide {
             position: absolute;
@@ -93,22 +94,29 @@
             height: 100%;
             opacity: 0;
             transition: opacity 1s ease-in-out;
-            /* Changed from cover to contain to prevent cropping of text boards */
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures full board is seen, no cropping */
         }
         
         .slide.active { opacity: 1; }
 
         .slide-caption {
-            background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.6), transparent);
+            background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.8), transparent);
             position: absolute;
             bottom: 0;
             width: 100%;
             padding: 2.5rem 2rem;
             transform: translateY(100%);
             transition: transform 0.5s ease;
+            text-align: center;
         }
 
         .slide.active .slide-caption { transform: translateY(0); }
@@ -153,7 +161,7 @@
                         <a href="#mission" class="hover:text-[#00bcd4] transition uppercase">The Problem</a>
                         <a href="#tech" class="hover:text-[#00bcd4] transition uppercase">Innovation</a>
                         <a href="#robot" class="hover:text-[#00bcd4] transition uppercase">Robot Lab</a>
-                        <a href="#outreach" class="hover:text-[#00bcd4] transition uppercase">Outreach</a>
+                        <a href="#gallery" class="hover:text-[#00bcd4] transition uppercase">Journey</a>
                         <a href="#values" class="hover:text-[#00bcd4] transition uppercase">Values</a>
                         <a href="#open-house" class="bg-amber-600 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-amber-500 transition shadow-xl pulse-btn">JAN 24 EVENT</a>
                     </div>
@@ -243,7 +251,7 @@
                     </div>
                 </div>
                 <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border border-stone-700 transform hover:scale-[1.02] transition-transform">
-                    <img src="b8b68c5e-9db1-4818-b3f9-08ba0f2c1bc7.jpg" alt="Innovation Project Board" class="w-full h-auto">
+                    <img src="https://raw.githubusercontent.com/robogineers/fll-71419/main/b8b68c5e-9db1-4818-b3f9-08ba0f2c1bc7.jpg" alt="Innovation Project Board" class="w-full h-auto">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent p-12 flex items-end">
                         <p class="text-[#00bcd4] font-bold text-sm tracking-[0.4em] uppercase">Visualizing the Challenge</p>
                     </div>
@@ -252,7 +260,7 @@
         </div>
     </section>
 
-    <!-- Section: Innovation Stack - Technical Excellence -->
+    <!-- Section: Innovation Stack -->
     <section id="tech" class="py-32 bg-black px-6">
         <div class="max-w-7xl mx-auto text-center">
             <h2 class="section-heading text-4xl md:text-6xl font-bold text-white uppercase">Innovation Stack</h2>
@@ -281,7 +289,7 @@
                 </div>
             </div>
 
-            <!-- Impact Section - Award Winning Data Presentation -->
+            <!-- Impact Section -->
             <div id="impact" class="bg-stone-900 rounded-[4rem] p-10 md:p-20 border border-stone-800 shadow-2xl relative text-left overflow-hidden">
                 <div class="absolute top-0 right-0 w-96 h-96 bg-[#00bcd4]/5 rounded-full blur-[100px] -mr-48 -mt-48"></div>
                 <div class="grid lg:grid-cols-2 gap-20 items-center relative z-10">
@@ -333,7 +341,7 @@
             <div class="grid lg:grid-cols-2 gap-24 items-start">
                 <div class="space-y-12">
                     <div class="relative rounded-[3rem] overflow-hidden border-2 border-stone-700 shadow-2xl">
-                        <img src="image_4cd958.jpg" alt="Jimmy Robot Design Board" class="w-full h-auto">
+                        <img src="https://raw.githubusercontent.com/robogineers/fll-71419/main/image_4cd958.jpg" alt="Jimmy Robot Design Board" class="w-full h-auto">
                         <div class="absolute top-6 left-6 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-xs font-bold uppercase tracking-widest">Engineering Journey</div>
                     </div>
                     <div class="grid grid-cols-2 gap-8 text-center uppercase tracking-[0.2em] font-bold text-[10px]">
@@ -384,7 +392,7 @@
         </div>
     </section>
 
-    <!-- NEW RESTORED GALLERY SECTION - The Journey -->
+    <!-- THE RESTORED GALLERY SECTION -->
     <section id="gallery" class="py-32 bg-black px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-24">
@@ -398,7 +406,7 @@
         </div>
     </section>
 
-    <!-- RESTORED: Community & Impact Section (Mandatory for Award) -->
+    <!-- RESTORED: Community & Impact Section -->
     <section id="outreach" class="py-32 bg-stone-900 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-24">
@@ -408,7 +416,7 @@
             
             <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div class="relative rounded-[3rem] overflow-hidden border-2 border-stone-700 shadow-2xl">
-                    <img src="image_4cdcc1.jpg" alt="Giving Back Board" class="w-full h-auto">
+                    <img src="https://raw.githubusercontent.com/robogineers/fll-71419/main/image_4cdcc1.jpg" alt="Giving Back Board" class="w-full h-auto">
                     <div class="absolute bottom-6 left-6 bg-black/70 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 text-sm font-bold uppercase tracking-widest">
                         Mentoring FLL #3054
                     </div>
@@ -442,7 +450,7 @@
             <div class="max-w-5xl mx-auto mb-24 relative group">
                 <div class="absolute -inset-4 bg-gradient-to-r from-[#00bcd4] via-amber-600 to-[#00bcd4] rounded-[3rem] blur opacity-10 transition duration-1000 group-hover:opacity-30"></div>
                 <div class="relative bg-stone-900 rounded-[2.5rem] overflow-hidden border-2 border-stone-800 shadow-4xl transform hover:scale-[1.01] transition-all duration-500">
-                    <img src="899a711f-3fae-49da-a8c5-08f66c1f3ca3.jpg" alt="Core Values Board" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000">
+                    <img src="https://raw.githubusercontent.com/robogineers/fll-71419/main/899a711f-3fae-49da-a8c5-08f66c1f3ca3.jpg" alt="Core Values Board" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000">
                 </div>
             </div>
 
@@ -463,7 +471,7 @@
         <div class="max-w-5xl mx-auto bg-black rounded-[3rem] p-6 md:p-16 shadow-2xl border-[6px] border-stone-800 relative group">
             <div class="absolute inset-0 bg-[#00bcd4]/5 rounded-[2.8rem] opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <!-- Added object-contain to ensure blueprint is not cut off -->
-            <img src="Screenshot 2025-11-23 110333.jpg" alt="Drone Diagram" class="w-full h-auto rounded-2xl shadow-3xl relative z-10 object-contain">
+            <img src="https://raw.githubusercontent.com/robogineers/fll-71419/main/Screenshot%202025-11-23%20110333.jpg" alt="Drone Diagram" class="w-full h-auto rounded-2xl shadow-3xl relative z-10 object-contain">
         </div>
         <p class="text-stone-600 mt-12 text-sm uppercase tracking-[0.5em] font-bold">Ground Truth V2 System Schematic</p>
     </section>
@@ -497,27 +505,29 @@
 
     <script>
         // --- Gallery Configuration ---
+        // Using Github RAW links to ensure images load everywhere. 
         // Manually cataloged ALL images to provide high-quality, judge-friendly captions.
-        // Auto-discovery has been removed to prevent random IDs.
+        const baseRepoUrl = 'https://raw.githubusercontent.com/robogineers/fll-71419/main/';
+        
         const galleryImages = [
             // Core Board Images (The most important for judges)
-            { src: 'b8b68c5e-9db1-4818-b3f9-08ba0f2c1bc7.jpg', caption: 'Problem Identification: Defining the Risks of Blind Digging' },
-            { src: 'image_4cd958.jpg', caption: 'Engineering Design: The Evolution of "Jimmy" the Robot' },
-            { src: 'image_4cdcc1.jpg', caption: 'Community Outreach: Giving Back to Team #3054' },
-            { src: '899a711f-3fae-49da-a8c5-08f66c1f3ca3.jpg', caption: 'Core Values: Our Spirit of Fun, Teamwork, and Inclusion' },
-            { src: 'image_4cd9d8.jpg', caption: 'Feedback Loop: Incorporating Community Advice' },
-            { src: 'image_56f067.png', caption: 'Research Data: Why We Chose This Problem' },
+            { src: baseRepoUrl + 'b8b68c5e-9db1-4818-b3f9-08ba0f2c1bc7.jpg', caption: 'Problem Identification: Defining the Risks of Blind Digging' },
+            { src: baseRepoUrl + 'image_4cd958.jpg', caption: 'Engineering Design: The Evolution of "Jimmy" the Robot' },
+            { src: baseRepoUrl + 'image_4cdcc1.jpg', caption: 'Community Outreach: Giving Back to Team #3054' },
+            { src: baseRepoUrl + '899a711f-3fae-49da-a8c5-08f66c1f3ca3.jpg', caption: 'Core Values: Our Spirit of Fun, Teamwork, and Inclusion' },
+            { src: baseRepoUrl + 'image_4cd9d8.jpg', caption: 'Feedback Loop: Incorporating Community Advice' },
+            { src: baseRepoUrl + 'image_56f067.png', caption: 'Research Data: Why We Chose This Problem' },
 
             // Innovation & Technical Artifacts
-            { src: 'Screenshot 2025-11-23 110333.jpg', caption: 'Technical Innovation: Dual-Sensor Drone Blueprint' },
-            { src: 'b8565387-4bcd-45ae-bde1-3da93e314715.jpg', caption: 'Final Prototype: The "History with Future Tech" Solar Drone' },
-            { src: '23569090-9E0B-42E6-BB89-7FFE5EBDD34A.jpg', caption: 'Data Visualization: Layered LiDAR & GPR Mapping' },
-            { src: 'IMG_2367.jpg', caption: 'Code Logic: The F1-Inspired Gyro Turn Algorithm' },
+            { src: baseRepoUrl + 'Screenshot%202025-11-23%20110333.jpg', caption: 'Technical Innovation: Dual-Sensor Drone Blueprint' },
+            { src: baseRepoUrl + 'b8565387-4bcd-45ae-bde1-3da93e314715.jpg', caption: 'Final Prototype: The "History with Future Tech" Solar Drone' },
+            { src: baseRepoUrl + '23569090-9E0B-42E6-BB89-7FFE5EBDD34A.jpg', caption: 'Data Visualization: Layered LiDAR & GPR Mapping' },
+            { src: baseRepoUrl + 'IMG_2367.jpg', caption: 'Code Logic: The F1-Inspired Gyro Turn Algorithm' },
 
             // Team in Action
-            { src: '4328cef2-e59a-43dc-9e4b-b52a36fed657.jpg', caption: 'The Team: Presenting Our Findings at the Regional Event' },
-            { src: 'a30ebffd-25b5-499d-b8d3-7028f5534253.jpg', caption: 'Community Day: Sharing our Project with the Public' },
-            { src: 'image_4cda15.jpg', caption: 'Robot Strategy: Explaining Reliability to Judges' }
+            { src: baseRepoUrl + '4328cef2-e59a-43dc-9e4b-b52a36fed657.jpg', caption: 'The Team: Presenting Our Findings at the Regional Event' },
+            { src: baseRepoUrl + 'a30ebffd-25b5-499d-b8d3-7028f5534253.jpg', caption: 'Community Day: Sharing our Project with the Public' },
+            { src: baseRepoUrl + 'image_4cda15.jpg', caption: 'Robot Strategy: Explaining Reliability to Judges' }
         ];
 
         const sliderContainer = document.getElementById('gallerySlider');
@@ -531,14 +541,17 @@
                 const slide = document.createElement('div');
                 slide.className = `slide ${index === 0 ? 'active' : ''}`;
                 
-                // Set background image
-                slide.style.backgroundImage = `url('${img.src}')`;
+                // Using IMG tag inside the div instead of background-image for better control
+                const imageElement = document.createElement('img');
+                imageElement.src = img.src;
+                imageElement.alt = img.caption;
                 
                 // Create caption
                 const caption = document.createElement('div');
                 caption.className = 'slide-caption';
                 caption.innerHTML = `<h3 class="text-lg md:text-2xl font-bold text-white uppercase tracking-wider shadow-black drop-shadow-md">${img.caption}</h3>`;
                 
+                slide.appendChild(imageElement);
                 slide.appendChild(caption);
                 sliderContainer.appendChild(slide);
             });
