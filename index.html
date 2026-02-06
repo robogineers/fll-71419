@@ -30,8 +30,8 @@
             letter-spacing: 0.05em;
         }
 
-        /* Using the Team Photo for the Hero Background */
         .hero-bg {
+            /* Using relative path assuming image is in same dir */
             background: linear-gradient(rgba(12, 10, 9, 0.85), rgba(12, 10, 9, 0.95)), url('4328cef2-e59a-43dc-9e4b-b52a36fed657.jpg'); 
             background-size: cover;
             background-position: center;
@@ -428,9 +428,15 @@
                 </div>
                 <div class="space-y-12">
                     <div class="tech-card p-10 rounded-[2.5rem] border-l-4 border-amber-600">
-                        <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tight">Mentoring "Lego Blasters"</h4>
+                        <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tight">Collaboration with "Lego Blasters"</h4>
                         <p class="text-stone-400 leading-relaxed text-sm">
-                            We mentored our younger peer team, <strong>Lego Blasters #3054</strong>, teaching them our tractor-base design strategy. This helped them improve their robot's stability and increase their mission reliability score by 40%.
+                            We exchanged innovation project details with <strong>Lego Blasters #3054</strong>, learning from their research while sharing ideas they used to enhance their own solution.
+                        </p>
+                    </div>
+                    <div class="tech-card p-10 rounded-[2.5rem] border-l-4 border-purple-600">
+                        <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tight">Junior Robogineer Program</h4>
+                        <p class="text-stone-400 leading-relaxed text-sm">
+                            To ensure team sustainability, we integrated a 2nd-grade apprentice into our workflow. This "Junior Robogineer" learns FLL Core Values and basic mechanics alongside us, preparing the next generation of innovators.
                         </p>
                     </div>
                     <div class="tech-card p-10 rounded-[2.5rem] border-l-4 border-green-600">
@@ -552,12 +558,25 @@
                 imageElement.src = img.src;
                 imageElement.alt = img.caption;
                 
+                // Add error handler to hide broken images and show a text placeholder
+                imageElement.onerror = function() {
+                    this.style.display = 'none';
+                    this.nextElementSibling.style.display = 'flex'; // Show error caption
+                    console.warn('Image failed to load:', img.src);
+                };
+                
                 // Create caption
                 const caption = document.createElement('div');
                 caption.className = 'slide-caption';
                 caption.innerHTML = `<h3 class="text-lg md:text-2xl font-bold text-white uppercase tracking-wider shadow-black drop-shadow-md">${img.caption}</h3>`;
                 
+                // Create error placeholder (hidden by default)
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'absolute inset-0 flex items-center justify-center bg-stone-900 text-stone-500 p-8 text-center hidden';
+                errorDiv.innerHTML = `<p>Image not found: ${img.src}<br>Please check file name.</p>`;
+
                 slide.appendChild(imageElement);
+                slide.appendChild(errorDiv); // Add error placeholder
                 slide.appendChild(caption);
                 sliderContainer.appendChild(slide);
             });
