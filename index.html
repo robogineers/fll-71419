@@ -31,7 +31,7 @@
         }
 
         .hero-bg {
-            /* Using relative path assuming image is in same dir */
+            /* Local image path */
             background: linear-gradient(rgba(12, 10, 9, 0.85), rgba(12, 10, 9, 0.95)), url('4328cef2-e59a-43dc-9e4b-b52a36fed657.jpg'); 
             background-size: cover;
             background-position: center;
@@ -253,7 +253,7 @@
                     </div>
                 </div>
                 <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border border-stone-700 transform hover:scale-[1.02] transition-transform">
-                    <img src="b8b68c5e-9db1-4818-b3f9-08ba0f2c1bc7.jpg" alt="Innovation Project Board" class="w-full h-auto smart-load">
+                    <img src="b8b68c5e-9db1-4818-b3f9-08ba0f2c1bc7.jpg" alt="Innovation Project Board" class="w-full h-auto">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent p-12 flex items-end">
                         <p class="text-[#00bcd4] font-bold text-sm tracking-[0.4em] uppercase">Visualizing the Challenge</p>
                     </div>
@@ -404,7 +404,7 @@
                 <p class="text-stone-500 text-xl uppercase tracking-widest font-semibold italic">"We don't lose. We either win or we learn."</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 gap-8">
                 <!-- Failure 1 -->
                 <div class="tech-card p-8 rounded-[2rem] border-l-4 border-red-500 relative overflow-hidden group hover:border-[#00bcd4] transition-colors">
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -450,6 +450,22 @@
                     <div class="bg-black/40 p-4 rounded-xl border border-green-500/30">
                         <p class="text-green-400 text-xs font-bold uppercase mb-1"><i class="fas fa-check-circle mr-2"></i> The Fix</p>
                         <p class="text-stone-300 text-xs">Pivoted to a Solar-Hybrid "Land & Charge" system based on expert feedback.</p>
+                    </div>
+                </div>
+
+                <!-- Failure 4 (NEW) -->
+                <div class="tech-card p-8 rounded-[2rem] border-l-4 border-red-500 relative overflow-hidden group hover:border-[#00bcd4] transition-colors">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-search text-6xl text-red-500"></i>
+                    </div>
+                    <h4 class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2 group-hover:text-[#00bcd4]">Failure #4</h4>
+                    <h3 class="text-white text-xl font-bold mb-4">Sensor Pivot: HSI vs. GPR</h3>
+                    <p class="text-stone-400 text-sm leading-relaxed mb-4">
+                        <strong class="text-white">What Happened:</strong> Initially considered Hyperspectral Imaging (HSI), but discovered it was surface-only and too expensive ($25k+).
+                    </p>
+                    <div class="bg-black/40 p-4 rounded-xl border border-green-500/30">
+                        <p class="text-green-400 text-xs font-bold uppercase mb-1"><i class="fas fa-check-circle mr-2"></i> The Fix</p>
+                        <p class="text-stone-300 text-xs">Switched to Dual-Frequency GPR ($2.2k) to see underground and fit our budget.</p>
                     </div>
                 </div>
             </div>
