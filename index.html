@@ -30,8 +30,8 @@
             letter-spacing: 0.05em;
         }
 
+        /* Using the Team Photo for the Hero Background */
         .hero-bg {
-            /* Local image path */
             background: linear-gradient(rgba(12, 10, 9, 0.85), rgba(12, 10, 9, 0.95)), url('4328cef2-e59a-43dc-9e4b-b52a36fed657.jpg'); 
             background-size: cover;
             background-position: center;
@@ -211,7 +211,7 @@
             
             <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div class="space-y-12">
-                    <div class="tech-card p-10 rounded-[3rem] border-l-[12px] border-red-500 shadow-2xl relative overflow-hidden">
+                    <div class="tech-card p-10 rounded-[3rem] border-l-[12px] border-red-500 shadow-2xl relative overflow-hidden bg-gradient-to-br from-stone-800 to-stone-900">
                         <div class="absolute top-0 right-0 p-8 opacity-5">
                             <i class="fas fa-search-minus text-9xl"></i>
                         </div>
@@ -226,25 +226,25 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div class="space-y-2 group">
                                 <h4 class="text-white font-bold text-sm uppercase tracking-widest flex items-center gap-2 group-hover:text-red-500 transition-colors">
-                                    <i class="fas fa-skull"></i> Artifact Damage
+                                    <i class="fas fa-skull text-red-500"></i> Artifact Damage
                                 </h4>
                                 <p class="text-stone-400 text-xs leading-relaxed">Blind digging destroys fragile history before it can ever be mapped or protected.</p>
                             </div>
                             <div class="space-y-2 group">
                                 <h4 class="text-white font-bold text-sm uppercase tracking-widest flex items-center gap-2 group-hover:text-red-500 transition-colors">
-                                    <i class="fas fa-hard-hat"></i> Tunnel Collapse
+                                    <i class="fas fa-hard-hat text-red-500"></i> Tunnel Collapse
                                 </h4>
                                 <p class="text-stone-400 text-xs leading-relaxed">Undetected subterranean voids pose immediate safety risks to the field crews.</p>
                             </div>
                             <div class="space-y-2 group">
                                 <h4 class="text-white font-bold text-sm uppercase tracking-widest flex items-center gap-2 group-hover:text-red-500 transition-colors">
-                                    <i class="fas fa-seedling"></i> Eco Destruction
+                                    <i class="fas fa-seedling text-red-500"></i> Eco Destruction
                                 </h4>
                                 <p class="text-stone-400 text-xs leading-relaxed">Unnecessary trial pits ruin local ecosystems and native soil composition forever.</p>
                             </div>
                             <div class="space-y-2 group">
                                 <h4 class="text-white font-bold text-sm uppercase tracking-widest flex items-center gap-2 group-hover:text-red-500 transition-colors">
-                                    <i class="fas fa-coins"></i> Wasted Funding
+                                    <i class="fas fa-coins text-red-500"></i> Wasted Funding
                                 </h4>
                                 <p class="text-stone-400 text-xs leading-relaxed">Manual labor currently consumes months of budget on empty dig sites.</p>
                             </div>
@@ -252,6 +252,7 @@
                     </div>
                 </div>
                 <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border border-stone-700 transform hover:scale-[1.02] transition-transform">
+                    <!-- Project Board Image -->
                     <img src="b8b68c5e-9db1-4818-b3f9-08ba0f2c1bc7.jpg" alt="Innovation Project Board" class="w-full h-auto">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent p-12 flex items-end">
                         <p class="text-[#00bcd4] font-bold text-sm tracking-[0.4em] uppercase">Visualizing the Challenge</p>
@@ -342,6 +343,7 @@
             <div class="grid lg:grid-cols-2 gap-24 items-start">
                 <div class="space-y-12">
                     <div class="relative rounded-[3rem] overflow-hidden border-2 border-stone-700 shadow-2xl">
+                        <!-- Robot Board Image -->
                         <img src="image_4cd958.jpg" alt="Jimmy Robot Design Board" class="w-full h-auto">
                         <div class="absolute top-6 left-6 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-xs font-bold uppercase tracking-widest">Engineering Journey</div>
                     </div>
@@ -364,6 +366,7 @@
                             "Inspired by Formula 1 cars braking for an apex, we drive at max speed for 80% of a turn, then engage precision PID snapping for the final 20%."
                         </p>
                         
+                        <!-- Using CSS Code block instead of missing image IMG_2367.jpg -->
                         <div class="bg-black/90 p-10 rounded-[2rem] border border-stone-700 font-mono text-xs leading-relaxed shadow-3xl">
                             <div class="flex justify-between items-center mb-8 border-b border-stone-800 pb-6">
                                 <span class="text-[#00bcd4] font-bold uppercase">Algorithm: Gyro_Snap_V2</span>
@@ -417,6 +420,7 @@
             
             <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div class="relative rounded-[3rem] overflow-hidden border-2 border-stone-700 shadow-2xl">
+                    <!-- Outreach Board Image -->
                     <img src="image_4cdcc1.jpg" alt="Giving Back Board" class="w-full h-auto">
                     <div class="absolute bottom-6 left-6 bg-black/70 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 text-sm font-bold uppercase tracking-widest">
                         Mentoring FLL #3054
@@ -451,6 +455,7 @@
             <div class="max-w-5xl mx-auto mb-24 relative group">
                 <div class="absolute -inset-4 bg-gradient-to-r from-[#00bcd4] via-amber-600 to-[#00bcd4] rounded-[3rem] blur opacity-10 transition duration-1000 group-hover:opacity-30"></div>
                 <div class="relative bg-stone-900 rounded-[2.5rem] overflow-hidden border-2 border-stone-800 shadow-4xl transform hover:scale-[1.01] transition-all duration-500">
+                    <!-- Core Values Board Image -->
                     <img src="899a711f-3fae-49da-a8c5-08f66c1f3ca3.jpg" alt="Core Values Board" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000">
                 </div>
             </div>
@@ -471,7 +476,7 @@
         <h2 class="section-heading text-4xl font-bold text-white mb-16 uppercase tracking-tighter">System Blueprint</h2>
         <div class="max-w-5xl mx-auto bg-black rounded-[3rem] p-6 md:p-16 shadow-2xl border-[6px] border-stone-800 relative group">
             <div class="absolute inset-0 bg-[#00bcd4]/5 rounded-[2.8rem] opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <!-- Added object-contain to ensure blueprint is not cut off -->
+            <!-- Blueprint Image -->
             <img src="Screenshot 2025-11-23 110333.jpg" alt="Drone Diagram" class="w-full h-auto rounded-2xl shadow-3xl relative z-10 object-contain">
         </div>
         <p class="text-stone-600 mt-12 text-sm uppercase tracking-[0.5em] font-bold">Ground Truth V2 System Schematic</p>
@@ -506,28 +511,29 @@
 
     <script>
         // --- Gallery Configuration ---
-        // Using RELATIVE file paths. Ensure images are in the same folder as this HTML file.
-        // Manually cataloged ALL images with award-winning descriptions.
-        
+        // Using ONLY provided filenames. Ensure these files are in the same folder as this HTML file.
         const galleryImages = [
-            // Core Board Images (The most important for judges)
+            // Core Team Photos
+            { src: 'IMG_2339.jpg', caption: 'Expert Mentorship: Dr. James McGrath-Seegmiller providing feedback.' },
+            { src: 'IMG_2341.jpg', caption: 'Engineering Phase: Prototyping the modular drone frame.' },
+            { src: 'IMG_2342.jpg', caption: 'Site Visit: The team presenting at the regional archaeology office.' },
+            
+            // Project Boards
             { src: 'b8b68c5e-9db1-4818-b3f9-08ba0f2c1bc7.jpg', caption: 'Problem Identification: Defining the Risks of Blind Digging' },
             { src: 'image_4cd958.jpg', caption: 'Engineering Design: The Evolution of "Jimmy" the Robot' },
             { src: 'image_4cdcc1.jpg', caption: 'Community Outreach: Giving Back to Team #3054' },
             { src: '899a711f-3fae-49da-a8c5-08f66c1f3ca3.jpg', caption: 'Core Values: Our Spirit of Fun, Teamwork, and Inclusion' },
             { src: 'image_4cd9d8.jpg', caption: 'Feedback Loop: Incorporating Community Advice' },
-            { src: 'image_56f067.png', caption: 'Research Data: Why We Chose This Problem' },
-
+            
             // Innovation & Technical Artifacts
             { src: 'Screenshot 2025-11-23 110333.jpg', caption: 'Technical Innovation: Dual-Sensor Drone Blueprint' },
-            { src: 'b8565387-4bcd-45ae-bde1-3da93e314715.jpg', caption: 'Final Prototype: The "History with Future Tech" Solar Drone' },
-            { src: '23569090-9E0B-42E6-BB89-7FFE5EBDD34A.jpg', caption: 'Data Visualization: Layered LiDAR & GPR Mapping' },
-            { src: 'IMG_2367.jpg', caption: 'Code Logic: The F1-Inspired Gyro Turn Algorithm' },
-
-            // Team in Action
-            { src: '4328cef2-e59a-43dc-9e4b-b52a36fed657.jpg', caption: 'The Team: Presenting Our Findings at the Regional Event' },
-            { src: 'a30ebffd-25b5-499d-b8d3-7028f5534253.jpg', caption: 'Community Day: Sharing our Project with the Public' },
-            { src: 'image_4cda15.jpg', caption: 'Robot Strategy: Explaining Reliability to Judges' }
+            { src: 'IMG_8469.jpg', caption: 'Final Prototype: The "History with Future Tech" Solar Drone' },
+            { src: '6ca8a80a-4e66-4c1d-88b3-645784affdd7.jpg', caption: 'Field Testing: Identifying artifacts in our mock dig site.' },
+            
+            // Impact & Misc
+            { src: '3a6d3092-3786-4a20-949e-0cf401a892d6.jpg', caption: 'Validation: Presenting the Ground Truth project to university experts.' },
+            { src: 'a30ebffd-25b5-499d-b8d3-7028f5534253.jpg', caption: 'Impact: Community validation across the Quad Cities.' },
+            { src: '4328cef2-e59a-43dc-9e4b-b52a36fed657.jpg', caption: 'Team Robogineers: FLL Unearthed Season.' }
         ];
 
         const sliderContainer = document.getElementById('gallerySlider');
@@ -546,25 +552,12 @@
                 imageElement.src = img.src;
                 imageElement.alt = img.caption;
                 
-                // Add error handler to hide broken images and show a text placeholder
-                imageElement.onerror = function() {
-                    this.style.display = 'none';
-                    this.nextElementSibling.style.display = 'flex'; // Show error caption
-                    console.warn('Image failed to load:', img.src);
-                };
-                
                 // Create caption
                 const caption = document.createElement('div');
                 caption.className = 'slide-caption';
                 caption.innerHTML = `<h3 class="text-lg md:text-2xl font-bold text-white uppercase tracking-wider shadow-black drop-shadow-md">${img.caption}</h3>`;
                 
-                // Create error placeholder (hidden by default)
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'absolute inset-0 flex items-center justify-center bg-stone-900 text-stone-500 p-8 text-center hidden';
-                errorDiv.innerHTML = `<p>Image not found: ${img.src}<br>Please check file name.</p>`;
-
                 slide.appendChild(imageElement);
-                slide.appendChild(errorDiv); // Add error placeholder
                 slide.appendChild(caption);
                 sliderContainer.appendChild(slide);
             });
