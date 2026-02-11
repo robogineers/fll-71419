@@ -13,10 +13,20 @@ export default {
       if (request.method === 'POST') {
         try {
           const body = await request.json();
+          const name = typeof body.name === 'string' ? body.name.trim() : '';
+          const text = typeof body.text === 'string' ? body.text.trim() : '';
+          const emailRaw = typeof body.email === 'string' ? body.email.trim() : '';
+          const email = emailRaw && emailRaw.length <= 254 ? emailRaw : '';
+
+          if (!text) {
+            return new Response('Message required', { status: 400 });
+          }
+
           const comment = {
             id: (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(),
-            name: body.name || 'Anonymous',
-            text: body.text || '',
+            name: name || 'Anonymous',
+            email: email || null,
+            text,
             created_at: new Date().toISOString()
           };
 
