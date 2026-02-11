@@ -1,0 +1,14 @@
+{
+  "name": "fll-71419",
+  "compatibility_date": "2026-02-11",
+  "main": "worker.js",
+  "assets": {
+    "directory": "./"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "COMMENTS",
+      "id": "9b68f8eaed0a4063a6a25e708cd4d9e5"
+    }
+  ]
+}
